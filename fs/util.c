@@ -20,7 +20,7 @@ char hexstr2char(char A){
 }
 
 // bytenr number of bytes in n
-void int2hexstr(char *buffer,int n, int bytenr) {
+void int2hexstr(char *buffer,unsigned int n, int bytenr) {
     int i;
     for(i = bytenr * 4 - 4; i >= 0; i -= 4) {
         int d = (n >> i) & 0xf;
@@ -37,3 +37,9 @@ void assert(int expression) {
     if (!expression)
         abort();
 }
+
+void one_if_zero(unsigned int *val) {
+	if (*val == 0)
+		*val = 1;
+}
+

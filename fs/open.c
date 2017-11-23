@@ -1,14 +1,14 @@
 #include "fs.h"
 
-int sys_open(struct proc *who, char *path, mode_t mode){
-    filp_t *filp;
+int sys_open(struct proc *who, char *path,int flags, mode_t mode){
+    struct filep *filp;
     int i,open_slot;
     int ret;
-    inode_t *inode = eat_path(path);
+    struct inode *inode = eat_path(path);
 
 
-    if(inode == NIL_INODE && mode && O_CREAT){
-        inode = alloc_inode();
+    if(inode == NIL_INODE && mode & O_CREAT){
+        inode = alloc_inode(inode->i_dev);
     }
 
     ret = get_fd(who, 0, &open_slot, &filp);

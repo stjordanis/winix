@@ -4,8 +4,8 @@
 //16 MB
 // #define totalsize (16*1024*1024)
 
-#define totalsize   (16*1024*1024)
-extern char disk[totalsize+1];
+#define TOTAL_SIZE   (16*1024*1024)
+extern char disk[TOTAL_SIZE];
 
 int makefs();
 #endif

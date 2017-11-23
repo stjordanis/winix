@@ -7,7 +7,7 @@ typedef unsigned int block_t;
 #define BLOCK_SIZE  1024
 
 #define INODE_NUM   496
-#define NR_TZONES   7
+#define NR_TZONES   8
 
 #define NR_FILPS          64    /* # slots in filp table */
 #define NR_INODES         64    /* # slots in "in core" inode table */
@@ -22,7 +22,7 @@ typedef unsigned int size_t;
 typedef unsigned int byte;
 typedef unsigned int byte_t;
 typedef unsigned int uint32_t;
-typedef unsigned int clock_t;
+//typedef unsigned int clock_t;
 typedef unsigned int mode_t;
 typedef unsigned int uid_t;
 typedef unsigned int gid_t;
@@ -30,7 +30,6 @@ typedef unsigned int off_t;
 typedef unsigned int nlink_t;
 typedef unsigned int block_t;
 typedef unsigned int sector_t;
-typedef int          dev_t;       /* holds (major|minor) device pair */
 typedef unsigned int bitchunk_t; /* collection of bits in a bitmap */
 
 #define READING 1

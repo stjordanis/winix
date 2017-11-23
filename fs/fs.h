@@ -1,10 +1,15 @@
 #ifndef _FS_FS_H_
 #define _FS_FS_H_ 1
 
+#define _CRT_NO_TIME_T 1
+
 //#define NULL ((void*)0)
 #include <stdio.h>
 
 #include <kernel\kernel.h>
+#include "dir.h"
+#include "stat.h"
+#include <winix/device.h>
 #include <fs/const.h>
 #include <fs/inode.h>
 #include <fs/cache.h>
@@ -19,38 +24,8 @@
 #include <fs/read.h>
 #include <fs/close.h>
 
-#ifndef EOF
-# define EOF (-1)
-#endif
-#ifndef ERR
-#define ERR (-1)    /* general error flag */
-#endif
-#ifndef OK
-#define OK 0        /* general OK flag */
-#endif
 
-#ifndef _DIR_H_
-#define _DIR_H_ 1
-
-#define    DIRBLKSIZ    1024    /* size of directory block */
-
-// each direct occupies 32 bytes, with 8 bytes for d_ino, and 24 bytes for directory name
-#ifndef DIRSIZ
-#define DIRSIZ    32
-#endif
-
-#ifndef DIRNAME_LEN
-#define DIRNAME_LEN 24
-#endif
-
-struct direct {
-  ino_t d_ino;
-  char d_name[DIRNAME_LEN];
-};
-
-#endif /* _DIR_H */
-
-#define S_IFDIR 0x004000      /* directory */
+#define ROOT_INO	(1)
 
 /* open-only flags */
 #define    O_RDONLY     0x0000        /* open for reading only */
@@ -60,11 +35,10 @@ struct direct {
 #define    O_CREAT      0x0200        /* create if nonexistant */
 
 
-extern struct super_block *sb;
-
 int hexstr2int(char *a, int len);
 char hexstr2char(char A);
 void int2hexstr(char *buffer,int n, int bytenr);
+int init_dir(struct blk_buf*);
 
 #endif
 

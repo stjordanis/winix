@@ -10,8 +10,8 @@
 #define PATH_MAX    128
 
 char *get_name(char *old_name, char string[NAME_MAX]);
-inode_t *advance(inode_t *dirp, char string[NAME_MAX]);
-inode_t *last_dir(char *path, char string[DIRSIZ]);
-inode_t* eat_path(char *path);
+struct inode *advance(struct inode *dirp, char string[NAME_MAX]);
+struct inode *last_dir(char *path, char string[DIRSIZ]);
+struct inode* eat_path(char *path);
 
 #endif

@@ -67,7 +67,6 @@ pid_t fork();
 pid_t vfork();
 int brk(void *addr);
 void *sbrk(int incr);
-int getc();
 unsigned int alarm(unsigned int seconds);
 pid_t wait(int *wstatus);
 pid_t waitpid(pid_t pid, int *wstatus, int options);

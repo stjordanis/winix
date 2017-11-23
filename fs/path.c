@@ -48,14 +48,14 @@ char *get_name(char *old_name, char string[NAME_MAX]){
 
 // given a directory and a name component, lookup in the directory
 // and find the corresponding inode
-inode_t *advance(inode_t *dirp, char string[NAME_MAX]){
+struct inode *advance(struct inode *dirp, char string[NAME_MAX]){
     char *str;
     int i,inum  = 0;
-    buf_t *buffer;
+    struct blk_buf *buffer;
     
 
     // currently only reads the first block
-    if( (buffer = get_block(dirp->i_zone[0])) != NULL){
+    if( (buffer = get_block(dirp->i_dev, dirp->i_zone[0])) != NULL){
         for(str = (char *)&buffer->block[0]; str < &buffer->block[BLOCK_SIZE]; str+= DIRSIZ){
           str += 8; // skip inode
           if(strcmp(str,string) == 0){
@@ -68,14 +68,14 @@ inode_t *advance(inode_t *dirp, char string[NAME_MAX]){
     if(!inum)
         return NIL_INODE;
     
-    return get_inode(inum);
+    return get_inode(dirp->i_dev, inum);
     
 }
 
  
 
-inode_t *last_dir(char *path, char string[DIRSIZ]){
-    inode_t *rip, *new_rip;
+struct inode *last_dir(char *path, char string[DIRSIZ]){
+    struct inode *rip, *new_rip;
     char *component_name;
 
     rip = *path == '/' ? current_proc->fp_rootdir : current_proc->fp_workdir;
@@ -110,8 +110,8 @@ inode_t *last_dir(char *path, char string[DIRSIZ]){
     }
 }
 
-inode_t* eat_path(char *path){
-    inode_t *inode;
+struct inode* eat_path(char *path){
+    struct inode *inode;
     char string[DIRSIZ];
 
     inode = last_dir(path,string);

@@ -4,5 +4,5 @@
 
 #ifndef FS_CLOSE_H
 #define FS_CLOSE_H
-int sys_close(int fd);
+int sys_close(struct proc* who, int fd);
 #endif // FS_CLOSE_H

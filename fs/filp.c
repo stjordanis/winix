@@ -1,10 +1,10 @@
 #include "fs.h"
 
-static filp_t fd_table[NR_FILPS];
+static struct filep fd_table[NR_FILPS];
 
-int get_fd(struct proc *curr,int start, int *k, filp_t **fpt){
+int get_fd(struct proc *curr,int start, int *k, struct filep **fpt){
     int i = -1;
-    filp_t *f;
+    struct filep *f;
 
     for( i=start; i< OPEN_MAX; i++){
         if(current_proc->fp_filp[i] == NIL_FILP){
@@ -29,11 +29,11 @@ int get_fd(struct proc *curr,int start, int *k, filp_t **fpt){
 }
 
 
-filp_t *get_filp(int fd){
+struct filep *get_filp(int fd){
     return &fd_table[fd];
 }
 
-filp_t *find_filp(inode_t *inode){
+struct filep *find_filp(struct inode *inode){
     int i;
     for(i = 0; i< NR_FILPS; i++){
         if(fd_table[i].filp_ino == inode){
@@ -43,21 +43,22 @@ filp_t *find_filp(inode_t *inode){
     return NULL;
 }
 
-filp_t *get_free_filp(){
-    filp_t* rep;
+struct filep *get_free_filp(){
+    struct filep* rep;
     for(rep = &fd_table[0]; rep < &fd_table[NR_FILPS]; rep++ ){
         if(rep->filp_ino = NIL_INODE){
             return rep;
         }
     }
+	return NULL;
 }
 
 void init_filp(){
-    filp_t* rep;
+    struct filep* rep;
     int i = 0;
     for(rep = &fd_table[0]; rep < &fd_table[NR_FILPS]; rep++ ){
         rep->filp_ino = NIL_INODE;
-        rep->filp_table_index = i;
+		rep->filp_table_index = i;
         i++;
     }
 }

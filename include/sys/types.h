@@ -19,6 +19,8 @@ typedef unsigned int off_t;
 typedef unsigned int time_t;
 typedef unsigned int nlink_t;
 typedef int pid_t;
+typedef unsigned int loff_t;
+typedef int          dev_t;       /* holds (major|minor) device pair */
 
 #ifndef SIGSET_T
 #define SIGSET_T

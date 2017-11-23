@@ -581,6 +581,7 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="tools\Kbuild.include" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fs\fs-project.rc">

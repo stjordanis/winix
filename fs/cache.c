@@ -1,28 +1,14 @@
 #include "fs.h"
+#include <winix/bitmap.h>
+static struct blk_buf buf_table[LRU_LEN];
 
-static buf_t* hash_buf[HASH_BUF_LEN];
-
-static buf_t buf_table[LRU_LEN];
-
-static buf_t *lru_cache[2];
-
-static buf_t imap;// inode map is assumed to be 1 block in length
-
-static buf_t bmap; // block map is also assumed to be 1 block in length
+static struct blk_buf *lru_cache[2];
 
 // The lru is illustrated as below
 // REAR -> next -> .... -> next -> FRONT
 // With the most recently used cache at the front, and least recently used block at the rear
 
-buf_t *get_imap(){
-    return &imap;
-}
-
-buf_t *get_bmap(){
-    return &bmap;
-}
-
-void rm_lru(buf_t *buffer){
+void rm_lru(struct blk_buf *buffer){
     if(buffer->prev)
         buffer->prev->next = buffer->next;
 
@@ -36,7 +22,7 @@ void rm_lru(buf_t *buffer){
         lru_cache[FRONT] = buffer->prev;
 }
 
-PRIVATE void buf_move_to_front(buf_t *buffer){
+PRIVATE void buf_move_to_front(struct blk_buf *buffer){
     if(lru_cache[FRONT] == buffer)
         return;
     
@@ -44,96 +30,128 @@ PRIVATE void buf_move_to_front(buf_t *buffer){
     enqueue_buf(buffer);
 }
 
-buf_t* dequeue_buf() {
-    buf_t *rear = lru_cache[REAR];
+PRIVATE void buf_move_to_rear(struct blk_buf *buffer) {
+	struct blk_buf* rear = lru_cache[REAR];
+	if (rear == buffer)
+		return;
+
+	rm_lru(buffer);
+	buffer->next = rear;
+	rear->prev = buffer;
+	lru_cache[REAR] = buffer;
+}
+
+struct blk_buf* dequeue_buf() {
+    struct blk_buf *rear = lru_cache[REAR];
     if (!rear)
         return NULL;
 
     rear->next->prev = NULL;
     lru_cache[REAR] = rear->next;
 
-    hash_buf[rear->b_blocknr] = NULL;
-
     return rear;
 }
 
-void enqueue_buf(buf_t *tbuf) {
-
+void enqueue_buf(struct blk_buf *tbuf) {
+	struct blk_buf* front = lru_cache[FRONT];
     if (lru_cache[FRONT] == NULL) {
         tbuf = lru_cache[REAR] = lru_cache[FRONT] = &buf_table[0];
         tbuf->next = tbuf->prev = NULL;
         return;
     }
 
-    lru_cache[FRONT]->next = tbuf;
-    tbuf->prev = lru_cache[REAR];
+	front->next = tbuf;
+    tbuf->prev = front;
     lru_cache[FRONT] = tbuf;
 
-    hash_buf[(tbuf->b_blocknr)] = tbuf;
-}
-
-PRIVATE void buf_move_to_rear(buf_t *buffer){
-    if(lru_cache[REAR] == buffer)
-        return;
-
-    rm_lru(buffer);
-    buffer->next = lru_cache[REAR];
-    lru_cache[REAR] = buffer;
 }
 
 
-int put_block(buf_t *tbuf, mode_t mode) {
-    if (mode & WRITE_IMMED && tbuf->b_dirt) {
-        tbuf->b_dirt = 0;
-        buf_move_to_front(tbuf);
-        return dev_io(tbuf->block, tbuf->b_blocknr, DEV_WRITE);
+
+int put_block(struct bdev* dev, struct blk_buf *tbuf, mode_t mode) {
+	
+    if (mode & WRITE_IMMED) {
+		tbuf->b_dirt = false;
+		buf_move_to_rear(tbuf);
+		return dev_io(dev, tbuf->block, tbuf->b_blocknr, DEV_WRITE);
     }
-    else { // mode = ONE_SHOT
-        buf_move_to_rear(tbuf);
-    }
+	tbuf->b_dirt = true;
+	return OK;
 }
 
-buf_t *get_block(block_t blocknr){
-    buf_t *tbuf;
-    int ret;
-    if(hash_buf[blocknr] != NULL){
-        tbuf = hash_buf[blocknr];
-        // tbuf->b_count += 1;
-        buf_move_to_front(tbuf);
-        return tbuf;
-    }
+struct blk_buf *get_block(struct bdev* dev, block_t blocknr){
+	struct blk_buf *tbuf = lru_cache[REAR];
+	int ret;
+	while (tbuf && tbuf->b_blocknr != blocknr) {
+		tbuf = tbuf->next;
+	}
 
-    // not in memory
+	if (tbuf) {
+		tbuf->b_count++;
+		return tbuf;
+	}
+		
+
+	//not in lru cache
     tbuf = dequeue_buf();
     if(tbuf && tbuf->b_dirt)
-        put_block(tbuf,WRITE_IMMED);
+        put_block(dev, tbuf,WRITE_IMMED);
 
+	memset(tbuf->block, 0, PAGE_LEN);
     tbuf->b_blocknr = blocknr;
     tbuf->next = tbuf->prev = NULL;
     tbuf->b_dirt = 0;
-    tbuf->b_count = 1;
+    tbuf->b_count = 0;
 
-    if (!dev_io(tbuf->block, blocknr, DEV_READ)) {
+    if (dev_io(dev, tbuf->block, blocknr, DEV_READ)) {
         return NULL;
     }
         
-
     enqueue_buf(tbuf);
     return tbuf;
 }
 
-
-int put_imap(){
-//    return dev_io(imap.block,imap.b_blocknr,DEV_WRITE);
+struct blk_buf* alloc_block(struct bdev* dev) {
+	struct blk_buf* blkbuf;
+	int i = dev->sb.s_blockmap_idx;
+	int blklen = dev->sb.s_blockmap_nr;
+	int idx;
+	for (; i < i + blklen; i++)
+	{
+		blkbuf = get_block(dev, i);
+		idx = bitmap_search(blkbuf->block, PAGE_LEN, 1);
+		if (idx > 0) {
+			bitmap_set_bit(blkbuf->block, PAGE_LEN, idx);
+			dev->sb.s_free_blocks--;
+			dev->sb.s_block_inuse++;
+			put_block(dev, blkbuf, WRITE_IMMED);
+			blkbuf = get_block(dev, idx);
+			blkbuf->b_count = 1;
+			blkbuf->b_dev = dev;
+			return blkbuf;
+		}
+	}
+	return NULL;
 }
 
-int put_bmap(){
-//    return dev_io(bmap.block,bmap.b_blocknr,DEV_WRITE);
+int free_block(struct bdev* dev, struct blk_buf* buf) {
+	block_t blocknr = buf->b_blocknr;
+	block_t blockoffset = blocknr / PAGE_LEN;
+	struct blk_buf* blkmap;
+
+	// write 0 to this block
+	memset(buf->block, 0, PAGE_LEN);
+	put_block(dev, buf, ONE_SHOT);
+
+	// free the block in the block bitmap
+	blkmap = get_block(dev, dev->sb.s_blockmap_idx + blockoffset);
+	bitmap_clear_bit(blkmap->block, PAGE_LEN, blocknr % PAGE_LEN);
+	put_block(dev, buf, WRITE_IMMED);
 }
 
 void init_buf(){
     int i=0;
-    buf_t *tbuf = NULL, *prevbuf = NULL;
+    struct blk_buf *tbuf = NULL, *prevbuf = NULL;
     char *val;
     for(tbuf = &buf_table[0];tbuf< &buf_table[LRU_LEN];tbuf++){
         if(prevbuf == NULL){
@@ -147,23 +165,20 @@ void init_buf(){
         prevbuf = tbuf;
     }
 
-    for(i=0;i<HASH_BUF_LEN;i++){
-        hash_buf[i] = NULL;
-    }
-    imap.b_blocknr = sb->s_inodemapnr;
-    imap.b_dirt = 0;
-    dev_io(imap.block,imap.b_blocknr,DEV_READ);
-    for(val = &imap.block[0]; val < &imap.block[BLOCK_SIZE]; val++){
-        *val = hexstr2char(*val);
-    }
-    // printf("imap %d\n",imap.block[0]);
+    //imap.b_blocknr = sb->s_inodemap_idx;
+    //imap.b_dirt = 0;
+    //dev_io(imap.block,imap.b_blocknr,DEV_READ);
+    //for(val = &imap.block[0]; val < &imap.block[BLOCK_SIZE]; val++){
+    //    *val = hexstr2char(*val);
+    //}
+    //// printf("imap %d\n",imap.block[0]);
 
-    bmap.b_blocknr = sb->s_blockmapnr;
-    bmap.b_dirt = 0;
-    dev_io(bmap.block,bmap.b_blocknr,DEV_READ);
-    for(val = &bmap.block[0]; val < &bmap.block[BLOCK_SIZE]; val++){
-        *val = hexstr2char(*val);
-    }
+    //bmap.b_blocknr = sb->s_blockmap_idx;
+    //bmap.b_dirt = 0;
+    //dev_io(bmap.block,bmap.b_blocknr,DEV_READ);
+    //for(val = &bmap.block[0]; val < &bmap.block[BLOCK_SIZE]; val++){
+    //    *val = hexstr2char(*val);
+    //}
 }
 
 

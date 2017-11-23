@@ -1,8 +1,8 @@
 #include "fs.h"
 
-int rw_chunk(inode_t *ino, int off, int len, int curr_fp_index, char *buf, int flag) {
+int rw_chunk(struct inode *ino, int off, int len, int curr_fp_index, char *buf, int flag) {
     int j;
-    buf_t *buffer = get_block(curr_fp_index);
+    struct blk_buf *buffer = get_block(ino->i_dev, curr_fp_index);
     char c;
     if (flag & READING) {
         for (j = off; j< off + len; j++) {
@@ -16,15 +16,15 @@ int rw_chunk(inode_t *ino, int off, int len, int curr_fp_index, char *buf, int f
     }
 }
 
-int rw_file(filp_t *filp, char *buf, size_t count, int flag){
+int rw_file(struct filep *filp, char *buf, size_t count, int flag){
     // char *pbuf = get_physical_addr(buf);
     int ret, r;
     int open_slot, pos;
     
     int b,off, len;
-    buf_t *buffer;
+    struct blk_buf *buffer;
     block_t curr_fp_index;
-    inode_t *ino = NULL;
+    struct inode *ino = NULL;
     char c;
     int j;
 

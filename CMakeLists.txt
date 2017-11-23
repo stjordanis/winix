@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7)
-project(winix)
+project(winix C)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -16,6 +16,7 @@ set(SOURCE_FILES
         fs/read_write.c
         fs/string.c
         fs/util.c
+		fs/dir.c
         include/kernel/clock.h
         include/kernel/exception.h
         include/kernel/idle.h
@@ -24,7 +25,7 @@ set(SOURCE_FILES
         include/kernel/sched.h
         include/kernel/system.h
         include/kernel/table.h
-        include/sys/direct.h
+        include/sys/dir.h
         include/sys/ipc.h
         include/sys/stat.h
         include/sys/syscall.h
