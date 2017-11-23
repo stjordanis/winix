@@ -1,24 +1,23 @@
 #ifndef _FS_FS_H_
 #define _FS_FS_H_ 1
 
-#define NULL ((void*)0)
+//#define NULL ((void*)0)
 #include <stdio.h>
 
-#include "string.h"
-#include "const.h"
-#include "inode.h"
-#include "cache.h"
-#include "file.h"
-#include "dev.h"
-#include "path.h"
-#include "filp.h"
-#include "makefs.h"
-#include "proc.h"
-#include "super.h"
+#include <kernel\kernel.h>
+#include <fs/const.h>
+#include <fs/inode.h>
+#include <fs/cache.h>
+#include <fs/file.h>
+#include <fs/dev.h>
+#include <fs/path.h>
+#include <fs/filp.h>
+#include <fs/makefs.h>
+#include <fs/super.h>
 
-#include "open.h"
-#include "read.h"
-#include "close.h"
+#include <fs/open.h>
+#include <fs/read.h>
+#include <fs/close.h>
 
 #ifndef EOF
 # define EOF (-1)
@@ -61,7 +60,6 @@ struct direct {
 #define    O_CREAT      0x0200        /* create if nonexistant */
 
 
-extern struct proc *current_proc;
 extern struct super_block *sb;
 
 int hexstr2int(char *a, int len);

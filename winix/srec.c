@@ -18,7 +18,7 @@ int exec_read_srec(struct proc *p){
 
     // read a line from the port
     for(i = 0; i < BUF_LEN - 1; i++) {
-    buf[i] = kgetc();     // read
+    buf[i] = kgetc(p);     // read
         // temp = (int)buf[i];
         // kprintf("%d ",temp);
     if(buf[i] == '\n') { // test for end
@@ -34,7 +34,7 @@ if ((wordslength = winix_load_srec_words_length(buf))) {
     while(1){
             // read line
         for(i = 0; i < BUF_LEN - 1; i++) {
-        buf[i] = kgetc();     // read
+        buf[i] = kgetc(p);     // read
                  // temp = (int)buf[i];
                  // kprintf("%d ",temp);
         if(buf[i] == '\n') { // test for end

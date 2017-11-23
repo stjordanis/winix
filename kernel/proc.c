@@ -86,7 +86,7 @@ void kreport_proc(struct proc* curr) {
             curr->pid,
             get_proc(curr->parent)->pid,
             curr->rbase,
-            get_physical_addr(get_pc_ptr(curr),curr),
+            get_physical_addr(curr,curr),
             get_physical_addr(curr->sp,curr),
             curr->heap_break,
             ptable_idx,

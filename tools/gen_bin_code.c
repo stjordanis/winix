@@ -69,7 +69,7 @@ int decode_srec(char *filename, int offset)
     FILE *fp;
     char *line = NULL;
     size_t len = -1;
-    ssize_t read;
+    size_t read;
     char *upperfilename;
 
     fp = fopen(filename, "r");

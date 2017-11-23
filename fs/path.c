@@ -1,6 +1,4 @@
 #include "fs.h"
-#include "proc.h"
-#include "inode.h"
 
 char dot1[2] = ".";    /* used for search_dir to bypass the access */
 char dot2[3] = "..";    /* permissions for . and ..            */

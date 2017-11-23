@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="winix"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="winix">
+				<Option output="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/winix.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 winix"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="winix/fast">
+				<Option output="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/winix.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 winix/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/cache.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/close.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dev.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/filp.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/fs_main.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/inode.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/makefs.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/open.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/path.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/read_write.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/string.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/util.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/const.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/ctype.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/curses.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/debug.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/errno.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/clock.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/exception.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/idle.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/kernel.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/proc.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/sched.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/system.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/table.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/lib.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/direct.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/ipc.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/stat.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/syscall.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/times.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/types.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/ucontext.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/unistd.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/wait.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/util.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/bitmap.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/comm.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/compiler.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/exec.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/gfp.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/kdebug.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/kwramp.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/list.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/list_linux.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/mem_alloc.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/mm.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/page.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/rex.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/sigsend.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/slab.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/sort.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/srec.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/sys_stdio.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/syscall_ctx.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/timer.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/type.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/wini_ipc.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/init/init.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/clock.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/exception.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/idle.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/main.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/proc.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/sched.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/signal.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_alarm.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_brk.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_execve.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_exit_wait.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_fork.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_getc.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_getpgid.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_getpid.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_kill.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_printf.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_setpgid.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_sigaction.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_sigpending.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_sigprocmask.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_sigreturn.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_sigsuspend.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_sysconf.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_times.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_vfork.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_waitpid.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/system/do_winfo.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/table.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/wini_ipc.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/gen/makecontext.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/stdlib/atoi.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/util/util.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/tools/gen_bin_code.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/bitmap.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/kdebug.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/list.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/mem_alloc.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/mm.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/srec.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/sys_stdio.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/timer.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/util.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

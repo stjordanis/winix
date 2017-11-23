@@ -27,18 +27,20 @@ void start_bins();
  **/
 void main() {
     init_bitmap();
-    init_mem_table();
+    //init_mem_table();
     init_proc();
     init_holes();
-    init_sched();
-    init_syscall_table();
 
-    init_kernel_tasks();
+	fs_main();
+    //init_sched();
+    //init_syscall_table();
+
+   /* init_kernel_tasks();
     start_init();
     start_bins();
 
     init_exceptions();
-    sched();
+    sched();*/
 }
 
 void init_kernel_tasks(){

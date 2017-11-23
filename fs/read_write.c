@@ -23,7 +23,7 @@ int rw_file(filp_t *filp, char *buf, size_t count, int flag){
     
     int b,off, len;
     buf_t *buffer;
-    block_t curr_fp_index, curr_fp_index;
+    block_t curr_fp_index;
     inode_t *ino = NULL;
     char c;
     int j;

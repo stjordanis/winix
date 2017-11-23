@@ -36,7 +36,7 @@ void system_main() {
     struct message* mesg = &m;
 
     kreport_sysinfo();
-    getcontext(&recv_ctx);
+    //getcontext(&recv_ctx);
     
     // Receive message, do work, repeat.
     while(true) {
@@ -76,12 +76,12 @@ void system_main() {
     free_mem_begin = peek_next_free_page() * PAGE_LEN;
     mem_end = peek_last_free_page() * PAGE_LEN;
     kprintf("\r\nWINIX v%d.%d\r\n", MAJOR_VERSION, MINOR_VERSION);
-    kprintf("Text Segment: 0x%08x - 0x%08x\r\n", &TEXT_BEGIN, &TEXT_END);
-    kprintf("Data Segment: 0x%08x - 0x%08x\r\n", &DATA_BEGIN, &DATA_END);
-    kprintf("BSS Segment:  0x%08x - 0x%08x\r\n", &BSS_BEGIN, &BSS_END);
-    kprintf("Unallocated:  0x%08x - 0x%08x\r\n", free_mem_begin, mem_end);
-    kprintf("%d kWords Free\r\n", 
-    ((unsigned int)(mem_end - free_mem_begin + PAGE_LEN)) / PAGE_LEN); // inclusive
+    //kprintf("Text Segment: 0x%08x - 0x%08x\r\n", &TEXT_BEGIN, &TEXT_END);
+    //kprintf("Data Segment: 0x%08x - 0x%08x\r\n", &DATA_BEGIN, &DATA_END);
+    //kprintf("BSS Segment:  0x%08x - 0x%08x\r\n", &BSS_BEGIN, &BSS_END);
+    //kprintf("Unallocated:  0x%08x - 0x%08x\r\n", free_mem_begin, mem_end);
+    //kprintf("%d kWords Free\r\n", 
+    //((unsigned int)(mem_end - free_mem_begin + PAGE_LEN)) / PAGE_LEN); // inclusive
 }
 
 void syscall_region_begin(){

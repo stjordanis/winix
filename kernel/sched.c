@@ -124,6 +124,6 @@ void sched() {
 #endif
 
     // Load context and run
-    wramp_load_context();
+    //wramp_load_context();
 }
 

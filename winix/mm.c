@@ -260,15 +260,15 @@ void init_mem_table() {
     int len, i;
     uint32_t free_mem_begin;
 
-    free_mem_begin = (uint32_t)&BSS_END;
+    /*free_mem_begin = (uint32_t)&BSS_END;
     free_mem_begin |= 0x03ff;
     free_mem_begin++;
-    len = free_mem_begin / PAGE_LEN;
+    len = free_mem_begin / PAGE_LEN;*/
 
     bitmap_clear(mem_map, MEM_MAP_LEN);
     bitmap_set_nbits(mem_map, MEM_MAP_LEN, 0, len);
     bitmap_set_bit(mem_map, MEM_MAP_LEN, FREE_MEM_END / PAGE_LEN);
-    bss_page_end = PADDR_TO_PAGED(free_mem_begin);
+    //bss_page_end = PADDR_TO_PAGED(free_mem_begin);
 }
 
 

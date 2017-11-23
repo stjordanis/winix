@@ -1,6 +1,6 @@
 #include "fs.h"
-#include "makefs.h"
-#include "inode.h"
+#include <fs/makefs.h>
+#include <fs/inode.h>
 #include <stdio.h>
 
 struct proc pcurrent_proc;
@@ -55,7 +55,7 @@ void init_fs() {
     printf("inode per block %d\n", sb->s_inode_per_block);
 }
 
-int main(){
+int fs_main(){
     
     int ret = makefs();
     inode_t *rootinode;

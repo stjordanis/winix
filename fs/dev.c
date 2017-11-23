@@ -1,5 +1,5 @@
-#include "dev.h"
-#include "makefs.h"
+#include <fs/dev.h>
+#include <fs/makefs.h>
 #include "fs.h"
 
 

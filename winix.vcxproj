@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{0E45C39D-5A3B-455C-BDCF-633E17ECB6B8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="cmake-build-debug\cmakefiles\3.7.2\compileridcxx\CMakeCXXCompilerId.cpp" />
+    <ClCompile Include="cmake-build-debug\cmakefiles\3.7.2\compileridc\CMakeCCompilerId.c" />
+    <ClCompile Include="cmake-build-debug\cmakefiles\feature_tests.c" />
+    <ClCompile Include="cmake-build-debug\cmakefiles\feature_tests.cxx" />
+    <ClCompile Include="dev\dev.c" />
+    <ClCompile Include="fs\cache.c" />
+    <ClCompile Include="fs\close.c" />
+    <ClCompile Include="fs\cmake-build-debug\cmakefiles\3.7.2\compileridcxx\CMakeCXXCompilerId.cpp" />
+    <ClCompile Include="fs\cmake-build-debug\cmakefiles\3.7.2\compileridc\CMakeCCompilerId.c" />
+    <ClCompile Include="fs\cmake-build-debug\cmakefiles\feature_tests.c" />
+    <ClCompile Include="fs\cmake-build-debug\cmakefiles\feature_tests.cxx" />
+    <ClCompile Include="fs\dev.c" />
+    <ClCompile Include="fs\filp.c" />
+    <ClCompile Include="fs\fs_main.c" />
+    <ClCompile Include="fs\inode.c" />
+    <ClCompile Include="fs\makefs.c" />
+    <ClCompile Include="fs\open.c" />
+    <ClCompile Include="fs\path.c" />
+    <ClCompile Include="fs\read_write.c" />
+    <ClCompile Include="fs\string.c" />
+    <ClCompile Include="fs\util.c" />
+    <ClCompile Include="include\init.c" />
+    <ClCompile Include="include\shell.c" />
+    <ClCompile Include="init\init.c" />
+    <ClCompile Include="kernel\clock.c" />
+    <ClCompile Include="kernel\exception.c" />
+    <ClCompile Include="kernel\idle.c" />
+    <ClCompile Include="kernel\main.c" />
+    <ClCompile Include="kernel\proc.c" />
+    <ClCompile Include="kernel\sched.c" />
+    <ClCompile Include="kernel\signal.c" />
+    <ClCompile Include="kernel\system.c" />
+    <ClCompile Include="kernel\system\do_alarm.c" />
+    <ClCompile Include="kernel\system\do_brk.c" />
+    <ClCompile Include="kernel\system\do_execve.c" />
+    <ClCompile Include="kernel\system\do_exit_wait.c" />
+    <ClCompile Include="kernel\system\do_fork.c" />
+    <ClCompile Include="kernel\system\do_getc.c" />
+    <ClCompile Include="kernel\system\do_getpgid.c" />
+    <ClCompile Include="kernel\system\do_getpid.c" />
+    <ClCompile Include="kernel\system\do_kill.c" />
+    <ClCompile Include="kernel\system\do_printf.c" />
+    <ClCompile Include="kernel\system\do_setpgid.c" />
+    <ClCompile Include="kernel\system\do_sigaction.c" />
+    <ClCompile Include="kernel\system\do_sigpending.c" />
+    <ClCompile Include="kernel\system\do_sigprocmask.c" />
+    <ClCompile Include="kernel\system\do_sigreturn.c" />
+    <ClCompile Include="kernel\system\do_sigsuspend.c" />
+    <ClCompile Include="kernel\system\do_sysconf.c" />
+    <ClCompile Include="kernel\system\do_times.c" />
+    <ClCompile Include="kernel\system\do_vfork.c" />
+    <ClCompile Include="kernel\system\do_waitpid.c" />
+    <ClCompile Include="kernel\system\do_winfo.c" />
+    <ClCompile Include="kernel\table.c" />
+    <ClCompile Include="kernel\wini_ipc.c" />
+    <ClCompile Include="lib\ansi\abort.c" />
+    <ClCompile Include="lib\ansi\env.c" />
+    <ClCompile Include="lib\ansi\getenv.c" />
+    <ClCompile Include="lib\ansi\putenv.c" />
+    <ClCompile Include="lib\ansi\raise.c" />
+    <ClCompile Include="lib\ansi\rand.c" />
+    <ClCompile Include="lib\ansi\setenv.c" />
+    <ClCompile Include="lib\ansi\string.c" />
+    <ClCompile Include="lib\gen\makecontext.c" />
+    <ClCompile Include="lib\posix\_sigset.c" />
+    <ClCompile Include="lib\stdio\errlist.c" />
+    <ClCompile Include="lib\stdio\stdio.c" />
+    <ClCompile Include="lib\stdlib\atoi.c" />
+    <ClCompile Include="lib\stdlib\stdlib.c" />
+    <ClCompile Include="lib\syscall\alarm.c" />
+    <ClCompile Include="lib\syscall\brk_sbrk.c" />
+    <ClCompile Include="lib\syscall\errno.c" />
+    <ClCompile Include="lib\syscall\execve.c" />
+    <ClCompile Include="lib\syscall\fork.c" />
+    <ClCompile Include="lib\syscall\getchar.c" />
+    <ClCompile Include="lib\syscall\getpgid.c" />
+    <ClCompile Include="lib\syscall\getpid.c" />
+    <ClCompile Include="lib\syscall\ipc.c" />
+    <ClCompile Include="lib\syscall\kill.c" />
+    <ClCompile Include="lib\syscall\printf.c" />
+    <ClCompile Include="lib\syscall\setpgid.c" />
+    <ClCompile Include="lib\syscall\sigaction.c" />
+    <ClCompile Include="lib\syscall\sigpending.c" />
+    <ClCompile Include="lib\syscall\sigprocmask.c" />
+    <ClCompile Include="lib\syscall\sigsuspend.c" />
+    <ClCompile Include="lib\syscall\sysconf.c" />
+    <ClCompile Include="lib\syscall\sys_winfo.c" />
+    <ClCompile Include="lib\syscall\times.c" />
+    <ClCompile Include="lib\syscall\wait.c" />
+    <ClCompile Include="lib\syscall\_exit.c" />
+    <ClCompile Include="lib\syscall\_syscall.c" />
+    <ClCompile Include="lib\util\util.c" />
+    <ClCompile Include="tools\gen_bin_code.c" />
+    <ClCompile Include="user\foo.c" />
+    <ClCompile Include="user\parallel_task.c" />
+    <ClCompile Include="user\rock.c" />
+    <ClCompile Include="user\shell\parse.c" />
+    <ClCompile Include="user\shell\shell.c" />
+    <ClCompile Include="user\shell\shell_test.c" />
+    <ClCompile Include="winix\bbexit.c" />
+    <ClCompile Include="winix\bitmap.c" />
+    <ClCompile Include="winix\kdebug.c" />
+    <ClCompile Include="winix\list.c" />
+    <ClCompile Include="winix\mem_alloc.c" />
+    <ClCompile Include="winix\mm.c" />
+    <ClCompile Include="winix\srec.c" />
+    <ClCompile Include="winix\sys_stdio.c" />
+    <ClCompile Include="winix\timer.c" />
+    <ClCompile Include="winix\util.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dev\dev.h" />
+    <ClInclude Include="fs\fs.h" />
+    <ClInclude Include="include\const.h" />
+    <ClInclude Include="include\ctype.h" />
+    <ClInclude Include="include\curses.h" />
+    <ClInclude Include="include\debug.h" />
+    <ClInclude Include="include\errno.h" />
+    <ClInclude Include="include\fs\cache.h" />
+    <ClInclude Include="include\fs\close.h" />
+    <ClInclude Include="include\fs\const.h" />
+    <ClInclude Include="include\fs\dev.h" />
+    <ClInclude Include="include\fs\file.h" />
+    <ClInclude Include="include\fs\filp.h" />
+    <ClInclude Include="include\fs\inode.h" />
+    <ClInclude Include="include\fs\makefs.h" />
+    <ClInclude Include="include\fs\open.h" />
+    <ClInclude Include="include\fs\path.h" />
+    <ClInclude Include="include\fs\read.h" />
+    <ClInclude Include="include\fs\resource.h" />
+    <ClInclude Include="include\fs\string.h" />
+    <ClInclude Include="include\fs\super.h" />
+    <ClInclude Include="include\kernel\clock.h" />
+    <ClInclude Include="include\kernel\exception.h" />
+    <ClInclude Include="include\kernel\idle.h" />
+    <ClInclude Include="include\kernel\kernel.h" />
+    <ClInclude Include="include\kernel\proc.h" />
+    <ClInclude Include="include\kernel\sched.h" />
+    <ClInclude Include="include\kernel\system.h" />
+    <ClInclude Include="include\kernel\table.h" />
+    <ClInclude Include="include\lib.h" />
+    <ClInclude Include="include\signal.h" />
+    <ClInclude Include="include\stdbool.h" />
+    <ClInclude Include="include\stddef.h" />
+    <ClInclude Include="include\stdio.h" />
+    <ClInclude Include="include\stdlib.h" />
+    <ClInclude Include="include\string.h" />
+    <ClInclude Include="include\sys\direct.h" />
+    <ClInclude Include="include\sys\ipc.h" />
+    <ClInclude Include="include\sys\stat.h" />
+    <ClInclude Include="include\sys\syscall.h" />
+    <ClInclude Include="include\sys\times.h" />
+    <ClInclude Include="include\sys\types.h" />
+    <ClInclude Include="include\sys\ucontext.h" />
+    <ClInclude Include="include\sys\unistd.h" />
+    <ClInclude Include="include\sys\wait.h" />
+    <ClInclude Include="include\ucontext.h" />
+    <ClInclude Include="include\unistd.h" />
+    <ClInclude Include="include\util.h" />
+    <ClInclude Include="include\winix\bitmap.h" />
+    <ClInclude Include="include\winix\comm.h" />
+    <ClInclude Include="include\winix\compiler.h" />
+    <ClInclude Include="include\winix\exec.h" />
+    <ClInclude Include="include\winix\gfp.h" />
+    <ClInclude Include="include\winix\kdebug.h" />
+    <ClInclude Include="include\winix\kwramp.h" />
+    <ClInclude Include="include\winix\list.h" />
+    <ClInclude Include="include\winix\list_linux.h" />
+    <ClInclude Include="include\winix\mem_alloc.h" />
+    <ClInclude Include="include\winix\mm.h" />
+    <ClInclude Include="include\winix\page.h" />
+    <ClInclude Include="include\winix\rex.h" />
+    <ClInclude Include="include\winix\sigsend.h" />
+    <ClInclude Include="include\winix\slab.h" />
+    <ClInclude Include="include\winix\sort.h" />
+    <ClInclude Include="include\winix\srec.h" />
+    <ClInclude Include="include\winix\syscall_ctx.h" />
+    <ClInclude Include="include\winix\sys_stdio.h" />
+    <ClInclude Include="include\winix\timer.h" />
+    <ClInclude Include="include\winix\type.h" />
+    <ClInclude Include="include\winix\wini_ipc.h" />
+    <ClInclude Include="user\shell\parse.h" />
+    <ClInclude Include="user\shell\shell.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cmake-build-debug\cmakefiles\3.7.2\CMakeDetermineCompilerABI_C.bin" />
+    <None Include="cmake-build-debug\cmakefiles\3.7.2\CMakeDetermineCompilerABI_CXX.bin" />
+    <None Include="cmake-build-debug\cmakefiles\feature_tests.bin" />
+    <None Include="fs\cmake-build-debug\cmakefiles\3.7.2\CMakeDetermineCompilerABI_C.bin" />
+    <None Include="fs\cmake-build-debug\cmakefiles\3.7.2\CMakeDetermineCompilerABI_CXX.bin" />
+    <None Include="fs\cmake-build-debug\cmakefiles\feature_tests.bin" />
+    <None Include="tools\Kbuild.include" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="fs\fs-project.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

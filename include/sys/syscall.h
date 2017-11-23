@@ -18,6 +18,7 @@
 
 #include <sys/ipc.h>
 #include <sys/types.h>
+#include <signal.h>
 
 #define _NSYSCALL               22
 /**
@@ -74,10 +75,9 @@ pid_t getpid();
 pid_t getppid();
 int kill (pid_t pid, int sig);
 long sysconf(int name);
-int sigaction(int signum, const struct sigaction *act,
-                         struct sigaction *oldact);
-int sigprocmask(int how, const sigset_t *set, sigset_t *oldset);
-int sigsuspend(const sigset_t *mask);
-int sigpending(sigset_t *set);
+//int sigaction(int signum, const struct sigaction *act,struct sigaction *oldact);
+//int sigprocmask(int how, const sigset_t *set, sigset_t *oldset);
+//int sigsuspend(const sigset_t *mask);
+//int sigpending(sigset_t *set);
 
 #endif

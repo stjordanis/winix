@@ -17,9 +17,11 @@
 
 #include <sys/types.h>
 #include <signal.h>
+#include <std/signal.h>
 #include <winix/type.h>
 #include <winix/timer.h>
 #include <winix/kwramp.h>
+#include <fs/file.h>
 
 // Init
 #define INIT                   		1
@@ -173,6 +175,11 @@ typedef struct proc {
 
     /* Alarm */
     struct timer alarm;
+
+	/* File System */
+	filp_t* fp_filp[OPEN_MAX];
+	inode_t *fp_rootdir;
+	inode_t *fp_workdir;
 } proc_t;
 
 /**

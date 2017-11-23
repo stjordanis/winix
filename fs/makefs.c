@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "makefs.h"
+#include <fs/makefs.h>
 
 char disk[totalsize+1];
 

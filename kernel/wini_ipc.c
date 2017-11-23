@@ -170,7 +170,7 @@ int do_notify(int src, int dest, struct message *m) {
  * Non-blocking send
  *
  **/
-int winix_notify(int dest, struct message *m) {
-    return wramp_syscall(WINIX_NOTIFY, dest, m);
-}
+//int winix_notify(int dest, struct message *m) {
+//    return wramp_syscall(WINIX_NOTIFY, dest, m);
+//}
 

@@ -33,11 +33,12 @@ void _panic(const char* str, const char* file) {
     if(file)
         kprintf(" in %s\n", file);
         
-    while(1) {
-        RexParallel->Ctrl = 0;
-        RexParallel->LeftSSD = 0x79;  // E
-        RexParallel->RightSSD = 0x50; // r
-    }
+    //while(1) {
+    //    RexParallel->Ctrl = 0;
+    //    RexParallel->LeftSSD = 0x79;  // E
+    //    RexParallel->RightSSD = 0x50; // r
+    //}
+	abort();
 }
 
 /**

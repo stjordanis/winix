@@ -1,5 +1,5 @@
 #include "fs.h"
-#include "inode.h"
+#include <fs/inode.h>
 
 inode_t inode_table[NR_INODES];
 
