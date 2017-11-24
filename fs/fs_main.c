@@ -7,15 +7,6 @@ struct proc pcurrent_proc;
 struct proc *current_proc;
 struct super_block *sb;
 
-/*	Blocks are arranged as below
-	0 - 1		boot sector
-	1 - 2		super block sector
-	2 - 3		block bitmap 
-	3 - 4		inode bitmap
-	4 - 132		inode table
-	132 - 16384	free blocks
-*/
-
 
 
 void init_fs(struct super_block* sb) {
@@ -36,18 +27,14 @@ int fs_main(){
 
 	makefs(&dev);
     
-
-    /*sb->s_iroot = get_inode(1);
-    sb->s_iroot->i_nlinks += 1*/
     current_proc = &pcurrent_proc;
     current_proc->fp_workdir = current_proc->fp_rootdir = get_inode(&dev, ROOT_INO);
     init_fs(&dev.sb);
 
 
-    char abc[] = "abcdefghijklmnopqrstuvwxyz";
     char c = 'a';
     int fd = sys_open(current_proc, "/foo.txt",O_CREAT, O_RDWR);
-    for (i = 0; i < 2048; i++) {
+    for (i = 0; i < 2046; i++) {
         sys_write(current_proc, fd, &c, 1);
         c++;
         if (c == 'z')
@@ -56,9 +43,9 @@ int fs_main(){
     sys_write(current_proc,fd, "a", 2);
     sys_close(current_proc, fd);
 
-    char buf[1024];
+    char buf[2048];
     fd = sys_open(current_proc, "/foo.txt", 0 ,O_RDONLY);
-    sys_read(current_proc, fd,buf,1024);
+    sys_read(current_proc, fd,buf, 2048);
     sys_close(current_proc, fd);
 
     printf("\nread foo.txt\n");

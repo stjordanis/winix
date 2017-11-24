@@ -14,7 +14,7 @@ struct blk_buf
 };
 
 
-#define LRU_LEN         8
+#define LRU_LEN         16
 
 #define FRONT   1
 #define REAR    0

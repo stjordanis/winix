@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/x86_64-pc-cygwin"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/backward"/>
@@ -65,6 +66,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/x86_64-pc-cygwin"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/backward"/>
@@ -87,6 +89,12 @@
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dev.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dir.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dir.h">
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/filp.c">
@@ -116,21 +124,6 @@
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/util.c">
 			<Option target="winix"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/const.h">
-			<Option target="winix"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/ctype.h">
-			<Option target="winix"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/curses.h">
-			<Option target="winix"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/debug.h">
-			<Option target="winix"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/errno.h">
-			<Option target="winix"/>
-		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/clock.h">
 			<Option target="winix"/>
 		</Unit>
@@ -155,10 +148,46 @@
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/kernel/table.h">
 			<Option target="winix"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/lib.h">
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/const.h">
 			<Option target="winix"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/direct.h">
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/ctype.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/curses.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/debug.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/errno.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/lib.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/stdbool.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/stddef.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/stdio.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/stdlib.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/ucontext.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/unistd.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/std/util.h">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/dir.h">
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/ipc.h">
@@ -183,9 +212,6 @@
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/sys/wait.h">
-			<Option target="winix"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/util.h">
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/bitmap.h">
@@ -252,9 +278,6 @@
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include/winix/wini_ipc.h">
-			<Option target="winix"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/init/init.c">
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/clock.c">
@@ -350,16 +373,19 @@
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/kernel/wini_ipc.c">
 			<Option target="winix"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/gen/makecontext.c">
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/posix/_sigset.c">
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/stdlib/atoi.c">
 			<Option target="winix"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/util/util.c">
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/syscall/errno.c">
 			<Option target="winix"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/tools/gen_bin_code.c">
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/syscall/ipc.c">
+			<Option target="winix"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/util/util.c">
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/bitmap.c">

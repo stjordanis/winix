@@ -204,6 +204,33 @@ fs/dev.c.s:
 	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/fs/dev.c.s
 .PHONY : fs/dev.c.s
 
+fs/dir.o: fs/dir.c.o
+
+.PHONY : fs/dir.o
+
+# target to build an object file
+fs/dir.c.o:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/fs/dir.c.o
+.PHONY : fs/dir.c.o
+
+fs/dir.i: fs/dir.c.i
+
+.PHONY : fs/dir.i
+
+# target to preprocess a source file
+fs/dir.c.i:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/fs/dir.c.i
+.PHONY : fs/dir.c.i
+
+fs/dir.s: fs/dir.c.s
+
+.PHONY : fs/dir.s
+
+# target to generate assembly for a file
+fs/dir.c.s:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/fs/dir.c.s
+.PHONY : fs/dir.c.s
+
 fs/filp.o: fs/filp.c.o
 
 .PHONY : fs/filp.o
@@ -446,33 +473,6 @@ fs/util.s: fs/util.c.s
 fs/util.c.s:
 	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/fs/util.c.s
 .PHONY : fs/util.c.s
-
-init/init.o: init/init.c.o
-
-.PHONY : init/init.o
-
-# target to build an object file
-init/init.c.o:
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/init/init.c.o
-.PHONY : init/init.c.o
-
-init/init.i: init/init.c.i
-
-.PHONY : init/init.i
-
-# target to preprocess a source file
-init/init.c.i:
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/init/init.c.i
-.PHONY : init/init.c.i
-
-init/init.s: init/init.c.s
-
-.PHONY : init/init.s
-
-# target to generate assembly for a file
-init/init.c.s:
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/init/init.c.s
-.PHONY : init/init.c.s
 
 kernel/clock.o: kernel/clock.c.o
 
@@ -1311,32 +1311,32 @@ kernel/wini_ipc.c.s:
 	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/kernel/wini_ipc.c.s
 .PHONY : kernel/wini_ipc.c.s
 
-lib/gen/makecontext.o: lib/gen/makecontext.c.o
+lib/posix/_sigset.o: lib/posix/_sigset.c.o
 
-.PHONY : lib/gen/makecontext.o
+.PHONY : lib/posix/_sigset.o
 
 # target to build an object file
-lib/gen/makecontext.c.o:
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/gen/makecontext.c.o
-.PHONY : lib/gen/makecontext.c.o
+lib/posix/_sigset.c.o:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/posix/_sigset.c.o
+.PHONY : lib/posix/_sigset.c.o
 
-lib/gen/makecontext.i: lib/gen/makecontext.c.i
+lib/posix/_sigset.i: lib/posix/_sigset.c.i
 
-.PHONY : lib/gen/makecontext.i
+.PHONY : lib/posix/_sigset.i
 
 # target to preprocess a source file
-lib/gen/makecontext.c.i:
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/gen/makecontext.c.i
-.PHONY : lib/gen/makecontext.c.i
+lib/posix/_sigset.c.i:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/posix/_sigset.c.i
+.PHONY : lib/posix/_sigset.c.i
 
-lib/gen/makecontext.s: lib/gen/makecontext.c.s
+lib/posix/_sigset.s: lib/posix/_sigset.c.s
 
-.PHONY : lib/gen/makecontext.s
+.PHONY : lib/posix/_sigset.s
 
 # target to generate assembly for a file
-lib/gen/makecontext.c.s:
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/gen/makecontext.c.s
-.PHONY : lib/gen/makecontext.c.s
+lib/posix/_sigset.c.s:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/posix/_sigset.c.s
+.PHONY : lib/posix/_sigset.c.s
 
 lib/stdlib/atoi.o: lib/stdlib/atoi.c.o
 
@@ -1365,6 +1365,60 @@ lib/stdlib/atoi.c.s:
 	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/stdlib/atoi.c.s
 .PHONY : lib/stdlib/atoi.c.s
 
+lib/syscall/errno.o: lib/syscall/errno.c.o
+
+.PHONY : lib/syscall/errno.o
+
+# target to build an object file
+lib/syscall/errno.c.o:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/syscall/errno.c.o
+.PHONY : lib/syscall/errno.c.o
+
+lib/syscall/errno.i: lib/syscall/errno.c.i
+
+.PHONY : lib/syscall/errno.i
+
+# target to preprocess a source file
+lib/syscall/errno.c.i:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/syscall/errno.c.i
+.PHONY : lib/syscall/errno.c.i
+
+lib/syscall/errno.s: lib/syscall/errno.c.s
+
+.PHONY : lib/syscall/errno.s
+
+# target to generate assembly for a file
+lib/syscall/errno.c.s:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/syscall/errno.c.s
+.PHONY : lib/syscall/errno.c.s
+
+lib/syscall/ipc.o: lib/syscall/ipc.c.o
+
+.PHONY : lib/syscall/ipc.o
+
+# target to build an object file
+lib/syscall/ipc.c.o:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/syscall/ipc.c.o
+.PHONY : lib/syscall/ipc.c.o
+
+lib/syscall/ipc.i: lib/syscall/ipc.c.i
+
+.PHONY : lib/syscall/ipc.i
+
+# target to preprocess a source file
+lib/syscall/ipc.c.i:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/syscall/ipc.c.i
+.PHONY : lib/syscall/ipc.c.i
+
+lib/syscall/ipc.s: lib/syscall/ipc.c.s
+
+.PHONY : lib/syscall/ipc.s
+
+# target to generate assembly for a file
+lib/syscall/ipc.c.s:
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/syscall/ipc.c.s
+.PHONY : lib/syscall/ipc.c.s
+
 lib/util/util.o: lib/util/util.c.o
 
 .PHONY : lib/util/util.o
@@ -1391,33 +1445,6 @@ lib/util/util.s: lib/util/util.c.s
 lib/util/util.c.s:
 	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/util/util.c.s
 .PHONY : lib/util/util.c.s
-
-tools/gen_bin_code.o: tools/gen_bin_code.c.o
-
-.PHONY : tools/gen_bin_code.o
-
-# target to build an object file
-tools/gen_bin_code.c.o:
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/tools/gen_bin_code.c.o
-.PHONY : tools/gen_bin_code.c.o
-
-tools/gen_bin_code.i: tools/gen_bin_code.c.i
-
-.PHONY : tools/gen_bin_code.i
-
-# target to preprocess a source file
-tools/gen_bin_code.c.i:
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/tools/gen_bin_code.c.i
-.PHONY : tools/gen_bin_code.c.i
-
-tools/gen_bin_code.s: tools/gen_bin_code.c.s
-
-.PHONY : tools/gen_bin_code.s
-
-# target to generate assembly for a file
-tools/gen_bin_code.c.s:
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/tools/gen_bin_code.c.s
-.PHONY : tools/gen_bin_code.c.s
 
 winix/bitmap.o: winix/bitmap.c.o
 
@@ -1680,6 +1707,9 @@ help:
 	@echo "... fs/dev.o"
 	@echo "... fs/dev.i"
 	@echo "... fs/dev.s"
+	@echo "... fs/dir.o"
+	@echo "... fs/dir.i"
+	@echo "... fs/dir.s"
 	@echo "... fs/filp.o"
 	@echo "... fs/filp.i"
 	@echo "... fs/filp.s"
@@ -1707,9 +1737,6 @@ help:
 	@echo "... fs/util.o"
 	@echo "... fs/util.i"
 	@echo "... fs/util.s"
-	@echo "... init/init.o"
-	@echo "... init/init.i"
-	@echo "... init/init.s"
 	@echo "... kernel/clock.o"
 	@echo "... kernel/clock.i"
 	@echo "... kernel/clock.s"
@@ -1803,18 +1830,21 @@ help:
 	@echo "... kernel/wini_ipc.o"
 	@echo "... kernel/wini_ipc.i"
 	@echo "... kernel/wini_ipc.s"
-	@echo "... lib/gen/makecontext.o"
-	@echo "... lib/gen/makecontext.i"
-	@echo "... lib/gen/makecontext.s"
+	@echo "... lib/posix/_sigset.o"
+	@echo "... lib/posix/_sigset.i"
+	@echo "... lib/posix/_sigset.s"
 	@echo "... lib/stdlib/atoi.o"
 	@echo "... lib/stdlib/atoi.i"
 	@echo "... lib/stdlib/atoi.s"
+	@echo "... lib/syscall/errno.o"
+	@echo "... lib/syscall/errno.i"
+	@echo "... lib/syscall/errno.s"
+	@echo "... lib/syscall/ipc.o"
+	@echo "... lib/syscall/ipc.i"
+	@echo "... lib/syscall/ipc.s"
 	@echo "... lib/util/util.o"
 	@echo "... lib/util/util.i"
 	@echo "... lib/util/util.s"
-	@echo "... tools/gen_bin_code.o"
-	@echo "... tools/gen_bin_code.i"
-	@echo "... tools/gen_bin_code.s"
 	@echo "... winix/bitmap.o"
 	@echo "... winix/bitmap.i"
 	@echo "... winix/bitmap.s"

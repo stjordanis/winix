@@ -89,7 +89,7 @@ struct inode* alloc_inode(struct bdev* dev ){
     }
 
     imap = get_block(dev, sb->s_inodemap_idx);
-	inum = bitmap_search(imap->block, PAGE_LEN, 1);
+	inum = bitmap_search_from(imap->block, PAGE_LEN, 1, 1);
 	if (inum == ERR)
 		return NULL;
 
@@ -100,6 +100,8 @@ struct inode* alloc_inode(struct bdev* dev ){
 
     if(put_block(dev,imap, WRITE_IMMED) == 0){
 		if (blkbuf = alloc_block(dev)) {
+			inode->i_dev = dev;
+			
 			inode->i_zone[0] = iblock;
 			inode->i_num = inum;
 			inode->i_ndblock = sb->s_inodetable_idx + (inum / sb->s_inode_per_block);
@@ -109,9 +111,42 @@ struct inode* alloc_inode(struct bdev* dev ){
     return NIL_INODE;
 }
 
+struct inode* new_inode_in_path(struct bdev* dev, char* path) {
+	char string[DIRSIZ];
+	struct direct* dir;
+	struct blk_buf* buf;
+	struct inode* ldip = last_dir(path, string);
+	struct inode* ino;
+
+	if (ino = advance(ldip, string)) {
+		return ino;
+	}
+
+	ino = alloc_inode(dev);
+	buf = get_block(dev, ldip->i_zone[0]);
+	
+	for (dir = (struct direct*)buf->block;
+			dir < &buf->block[PAGE_LEN]; dir++)
+	{
+		if (dir->d_ino == 0) {
+			dir->d_ino = ino->i_num;
+			memcpy(dir->d_name, string, strlen(string) + 1);
+			break;
+		}
+	}
+	return ino;
+}
+
 
 void free_inode(struct inode *inode){
-    
+	struct bdev* dev = inode->i_dev;
+	struct blk_buf* buf = get_block(dev, dev->sb.s_inodemap_idx);
+
+	bitmap_clear_bit(buf->block, PAGE_LEN, inode->i_num);
+	put_block(dev, buf, WRITE_IMMED);
+	inode->i_num = 0;
+
+	return OK;
 }
 
 void init_inode(){

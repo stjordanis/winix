@@ -20,6 +20,8 @@ void rm_lru(struct blk_buf *buffer){
     
     if(lru_cache[FRONT] == buffer)
         lru_cache[FRONT] = buffer->prev;
+
+	buffer->next = buffer->prev = NULL;
 }
 
 PRIVATE void buf_move_to_front(struct blk_buf *buffer){
@@ -69,10 +71,9 @@ void enqueue_buf(struct blk_buf *tbuf) {
 
 
 int put_block(struct bdev* dev, struct blk_buf *tbuf, mode_t mode) {
-	
-    if (mode & WRITE_IMMED) {
+	buf_move_to_front(tbuf);
+    if (mode == WRITE_IMMED) {
 		tbuf->b_dirt = false;
-		buf_move_to_rear(tbuf);
 		return dev_io(dev, tbuf->block, tbuf->b_blocknr, DEV_WRITE);
     }
 	tbuf->b_dirt = true;
@@ -87,6 +88,7 @@ struct blk_buf *get_block(struct bdev* dev, block_t blocknr){
 	}
 
 	if (tbuf) {
+		buf_move_to_front(tbuf);
 		tbuf->b_count++;
 		return tbuf;
 	}
@@ -147,6 +149,18 @@ int free_block(struct bdev* dev, struct blk_buf* buf) {
 	blkmap = get_block(dev, dev->sb.s_blockmap_idx + blockoffset);
 	bitmap_clear_bit(blkmap->block, PAGE_LEN, blocknr % PAGE_LEN);
 	put_block(dev, buf, WRITE_IMMED);
+}
+
+void kprintf_blkbuf(char *str) {
+	int count = 0;
+	struct blk_buf* buf = lru_cache[REAR];
+	printf("%s\n", str);
+	while (buf) {
+		printf("block %d\n", buf->b_blocknr);
+		buf = buf->next;
+		count++;
+	}
+	printf("%d\n", count);
 }
 
 void init_buf(){

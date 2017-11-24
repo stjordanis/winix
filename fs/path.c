@@ -50,18 +50,22 @@ char *get_name(char *old_name, char string[NAME_MAX]){
 // and find the corresponding inode
 struct inode *advance(struct inode *dirp, char string[NAME_MAX]){
     char *str;
+	struct direct* dir;
     int i,inum  = 0;
     struct blk_buf *buffer;
     
 
     // currently only reads the first block
     if( (buffer = get_block(dirp->i_dev, dirp->i_zone[0])) != NULL){
-        for(str = (char *)&buffer->block[0]; str < &buffer->block[BLOCK_SIZE]; str+= DIRSIZ){
-          str += 8; // skip inode
-          if(strcmp(str,string) == 0){
-              inum = hexstr2int(str-8,8);
-              break;
-          }
+        for(dir = (struct direct*)&buffer->block[0];
+			dir < (struct direct*)&buffer->block[BLOCK_SIZE];
+			dir++){
+
+			  str = dir->d_name;
+			  if(strcmp(str,string) == 0){
+				  inum = dir->d_ino;
+				  break;
+			  }
         }
     }
 
@@ -93,7 +97,7 @@ struct inode *last_dir(char *path, char string[DIRSIZ]){
             return NIL_INODE; // bad parsing
         }
 
-        if(component_name == '\0'){
+        if(*component_name == '\0'){
             if(rip->i_mode & S_IFDIR)
                 return rip;
             else{
@@ -111,9 +115,17 @@ struct inode *last_dir(char *path, char string[DIRSIZ]){
 }
 
 struct inode* eat_path(char *path){
-    struct inode *inode;
+	struct inode *ldip, *rip;
     char string[DIRSIZ];
 
-    inode = last_dir(path,string);
-    return inode;
+	ldip = last_dir(path,string);
+
+	if (*string == '\0')
+		return ldip;
+
+	rip = advance(ldip, string);
+
+	if (rip == NULL)
+		return ldip;
+    return rip;
 }

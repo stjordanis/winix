@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/CMakeCInformation.cmake"
-  "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/CMakeCXXInformation.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/CMakeCommonLanguageInclude.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/CMakeFindCodeBlocks.cmake"
@@ -18,10 +17,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/CMakeSystemSpecificInformation.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/CMakeSystemSpecificInitialize.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/Compiler/GNU-C.cmake"
-  "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/Compiler/GNU-CXX.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/Compiler/GNU.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/Platform/CYGWIN-GNU-C.cmake"
-  "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/Platform/CYGWIN-GNU-CXX.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/Platform/CYGWIN-GNU.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/Platform/CYGWIN-windres.cmake"
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/Platform/CYGWIN.cmake"
@@ -29,7 +26,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/cygdrive/c/Users/Bruce/.CLion2017.1/system/cygwin_cmake/share/cmake-3.7.2/Modules/ProcessorCount.cmake"
   "../CMakeLists.txt"
   "CMakeFiles/3.7.2/CMakeCCompiler.cmake"
-  "CMakeFiles/3.7.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.7.2/CMakeRCCompiler.cmake"
   "CMakeFiles/3.7.2/CMakeSystem.cmake"
   )

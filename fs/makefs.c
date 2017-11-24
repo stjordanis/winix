@@ -85,6 +85,7 @@ int makefs(struct bdev* dev)
 	block_t blockoff, bitmapoff;
 	
 	init_super(TOTAL_SIZE,dev);
+	kprintf_blkbuf("initla");
 
 	// block map
 	buf = get_block(dev, sb->s_blockmap_idx);
@@ -105,20 +106,22 @@ int makefs(struct bdev* dev)
 
 	// root inode struct in inode table
 	buf = get_block(dev, sb->s_inodetable_idx + blockoff);
-	ino = (struct inode*)(buf->block + offset);
-	for ( i = 0; i < NR_TZONES; i++)
-	{
-		if (ino->i_zone[i] == 0) { //free place to place the new block
-			root_blk = alloc_block(dev);
-			ino->i_zone[i] = root_blk->b_blocknr;
-			put_block(dev, buf, WRITE_IMMED);	//write inode struct 
-			break;
-		}
-	}
+	ino = read_inode(dev, ROOT_INO);
 
+	root_blk = alloc_block(dev);
+	ino->i_zone[0] = root_blk->b_blocknr;
+	ino->i_mode = 0x00000fff ^ 0x22 | S_IFDIR;
+	ino->i_nlinks = 1;
+	ino->i_dev = dev;
+	ino->i_count = 1;
+	ino->i_num = ROOT_INO;
+	ino->i_ndblock = buf->b_blocknr;
+	put_block(dev, buf, WRITE_IMMED);	//write inode struct 
+	
 	//the block that is newly allocated
 	if (root_blk) {
 		init_dir(root_blk);
+		ino->i_size = 2 * sizeof(struct direct);
 	}
 
 

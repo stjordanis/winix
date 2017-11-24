@@ -47,5 +47,6 @@ struct inode* get_inode(struct bdev* dev, int num);
 int put_inode(struct bdev* dev, struct inode *inode);
 struct inode* alloc_inode(struct bdev* dev);
 void init_inode();
+struct inode* new_inode_in_path(struct bdev* dev, char* path);
 
 #endif

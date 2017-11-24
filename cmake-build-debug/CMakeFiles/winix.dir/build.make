@@ -345,28 +345,28 @@ CMakeFiles/winix.dir/fs/util.c.o.provides: CMakeFiles/winix.dir/fs/util.c.o.requ
 CMakeFiles/winix.dir/fs/util.c.o.provides.build: CMakeFiles/winix.dir/fs/util.c.o
 
 
-CMakeFiles/winix.dir/init/init.c.o: CMakeFiles/winix.dir/flags.make
-CMakeFiles/winix.dir/init/init.c.o: ../init/init.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/winix.dir/init/init.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/init/init.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/init/init.c
+CMakeFiles/winix.dir/fs/dir.c.o: CMakeFiles/winix.dir/flags.make
+CMakeFiles/winix.dir/fs/dir.c.o: ../fs/dir.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/winix.dir/fs/dir.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/fs/dir.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dir.c
 
-CMakeFiles/winix.dir/init/init.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/winix.dir/init/init.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Bruce/Documents/GitHub/winix/init/init.c > CMakeFiles/winix.dir/init/init.c.i
+CMakeFiles/winix.dir/fs/dir.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/winix.dir/fs/dir.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dir.c > CMakeFiles/winix.dir/fs/dir.c.i
 
-CMakeFiles/winix.dir/init/init.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/winix.dir/init/init.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Bruce/Documents/GitHub/winix/init/init.c -o CMakeFiles/winix.dir/init/init.c.s
+CMakeFiles/winix.dir/fs/dir.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/winix.dir/fs/dir.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dir.c -o CMakeFiles/winix.dir/fs/dir.c.s
 
-CMakeFiles/winix.dir/init/init.c.o.requires:
+CMakeFiles/winix.dir/fs/dir.c.o.requires:
 
-.PHONY : CMakeFiles/winix.dir/init/init.c.o.requires
+.PHONY : CMakeFiles/winix.dir/fs/dir.c.o.requires
 
-CMakeFiles/winix.dir/init/init.c.o.provides: CMakeFiles/winix.dir/init/init.c.o.requires
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/init/init.c.o.provides.build
-.PHONY : CMakeFiles/winix.dir/init/init.c.o.provides
+CMakeFiles/winix.dir/fs/dir.c.o.provides: CMakeFiles/winix.dir/fs/dir.c.o.requires
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/fs/dir.c.o.provides.build
+.PHONY : CMakeFiles/winix.dir/fs/dir.c.o.provides
 
-CMakeFiles/winix.dir/init/init.c.o.provides.build: CMakeFiles/winix.dir/init/init.c.o
+CMakeFiles/winix.dir/fs/dir.c.o.provides.build: CMakeFiles/winix.dir/fs/dir.c.o
 
 
 CMakeFiles/winix.dir/kernel/system/do_alarm.c.o: CMakeFiles/winix.dir/flags.make
@@ -1113,33 +1113,9 @@ CMakeFiles/winix.dir/kernel/wini_ipc.c.o.provides: CMakeFiles/winix.dir/kernel/w
 CMakeFiles/winix.dir/kernel/wini_ipc.c.o.provides.build: CMakeFiles/winix.dir/kernel/wini_ipc.c.o
 
 
-CMakeFiles/winix.dir/lib/gen/makecontext.c.o: CMakeFiles/winix.dir/flags.make
-CMakeFiles/winix.dir/lib/gen/makecontext.c.o: ../lib/gen/makecontext.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/winix.dir/lib/gen/makecontext.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/lib/gen/makecontext.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/gen/makecontext.c
-
-CMakeFiles/winix.dir/lib/gen/makecontext.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/winix.dir/lib/gen/makecontext.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/gen/makecontext.c > CMakeFiles/winix.dir/lib/gen/makecontext.c.i
-
-CMakeFiles/winix.dir/lib/gen/makecontext.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/winix.dir/lib/gen/makecontext.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/gen/makecontext.c -o CMakeFiles/winix.dir/lib/gen/makecontext.c.s
-
-CMakeFiles/winix.dir/lib/gen/makecontext.c.o.requires:
-
-.PHONY : CMakeFiles/winix.dir/lib/gen/makecontext.c.o.requires
-
-CMakeFiles/winix.dir/lib/gen/makecontext.c.o.provides: CMakeFiles/winix.dir/lib/gen/makecontext.c.o.requires
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/gen/makecontext.c.o.provides.build
-.PHONY : CMakeFiles/winix.dir/lib/gen/makecontext.c.o.provides
-
-CMakeFiles/winix.dir/lib/gen/makecontext.c.o.provides.build: CMakeFiles/winix.dir/lib/gen/makecontext.c.o
-
-
 CMakeFiles/winix.dir/lib/stdlib/atoi.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/lib/stdlib/atoi.c.o: ../lib/stdlib/atoi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/winix.dir/lib/stdlib/atoi.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/winix.dir/lib/stdlib/atoi.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/lib/stdlib/atoi.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/stdlib/atoi.c
 
 CMakeFiles/winix.dir/lib/stdlib/atoi.c.i: cmake_force
@@ -1163,7 +1139,7 @@ CMakeFiles/winix.dir/lib/stdlib/atoi.c.o.provides.build: CMakeFiles/winix.dir/li
 
 CMakeFiles/winix.dir/lib/util/util.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/lib/util/util.c.o: ../lib/util/util.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/winix.dir/lib/util/util.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/winix.dir/lib/util/util.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/lib/util/util.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/util/util.c
 
 CMakeFiles/winix.dir/lib/util/util.c.i: cmake_force
@@ -1185,33 +1161,81 @@ CMakeFiles/winix.dir/lib/util/util.c.o.provides: CMakeFiles/winix.dir/lib/util/u
 CMakeFiles/winix.dir/lib/util/util.c.o.provides.build: CMakeFiles/winix.dir/lib/util/util.c.o
 
 
-CMakeFiles/winix.dir/tools/gen_bin_code.c.o: CMakeFiles/winix.dir/flags.make
-CMakeFiles/winix.dir/tools/gen_bin_code.c.o: ../tools/gen_bin_code.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/winix.dir/tools/gen_bin_code.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/tools/gen_bin_code.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/tools/gen_bin_code.c
+CMakeFiles/winix.dir/lib/posix/_sigset.c.o: CMakeFiles/winix.dir/flags.make
+CMakeFiles/winix.dir/lib/posix/_sigset.c.o: ../lib/posix/_sigset.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/winix.dir/lib/posix/_sigset.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/lib/posix/_sigset.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/posix/_sigset.c
 
-CMakeFiles/winix.dir/tools/gen_bin_code.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/winix.dir/tools/gen_bin_code.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Bruce/Documents/GitHub/winix/tools/gen_bin_code.c > CMakeFiles/winix.dir/tools/gen_bin_code.c.i
+CMakeFiles/winix.dir/lib/posix/_sigset.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/winix.dir/lib/posix/_sigset.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/posix/_sigset.c > CMakeFiles/winix.dir/lib/posix/_sigset.c.i
 
-CMakeFiles/winix.dir/tools/gen_bin_code.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/winix.dir/tools/gen_bin_code.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Bruce/Documents/GitHub/winix/tools/gen_bin_code.c -o CMakeFiles/winix.dir/tools/gen_bin_code.c.s
+CMakeFiles/winix.dir/lib/posix/_sigset.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/winix.dir/lib/posix/_sigset.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/posix/_sigset.c -o CMakeFiles/winix.dir/lib/posix/_sigset.c.s
 
-CMakeFiles/winix.dir/tools/gen_bin_code.c.o.requires:
+CMakeFiles/winix.dir/lib/posix/_sigset.c.o.requires:
 
-.PHONY : CMakeFiles/winix.dir/tools/gen_bin_code.c.o.requires
+.PHONY : CMakeFiles/winix.dir/lib/posix/_sigset.c.o.requires
 
-CMakeFiles/winix.dir/tools/gen_bin_code.c.o.provides: CMakeFiles/winix.dir/tools/gen_bin_code.c.o.requires
-	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/tools/gen_bin_code.c.o.provides.build
-.PHONY : CMakeFiles/winix.dir/tools/gen_bin_code.c.o.provides
+CMakeFiles/winix.dir/lib/posix/_sigset.c.o.provides: CMakeFiles/winix.dir/lib/posix/_sigset.c.o.requires
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/posix/_sigset.c.o.provides.build
+.PHONY : CMakeFiles/winix.dir/lib/posix/_sigset.c.o.provides
 
-CMakeFiles/winix.dir/tools/gen_bin_code.c.o.provides.build: CMakeFiles/winix.dir/tools/gen_bin_code.c.o
+CMakeFiles/winix.dir/lib/posix/_sigset.c.o.provides.build: CMakeFiles/winix.dir/lib/posix/_sigset.c.o
+
+
+CMakeFiles/winix.dir/lib/syscall/ipc.c.o: CMakeFiles/winix.dir/flags.make
+CMakeFiles/winix.dir/lib/syscall/ipc.c.o: ../lib/syscall/ipc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/winix.dir/lib/syscall/ipc.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/lib/syscall/ipc.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/syscall/ipc.c
+
+CMakeFiles/winix.dir/lib/syscall/ipc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/winix.dir/lib/syscall/ipc.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/syscall/ipc.c > CMakeFiles/winix.dir/lib/syscall/ipc.c.i
+
+CMakeFiles/winix.dir/lib/syscall/ipc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/winix.dir/lib/syscall/ipc.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/syscall/ipc.c -o CMakeFiles/winix.dir/lib/syscall/ipc.c.s
+
+CMakeFiles/winix.dir/lib/syscall/ipc.c.o.requires:
+
+.PHONY : CMakeFiles/winix.dir/lib/syscall/ipc.c.o.requires
+
+CMakeFiles/winix.dir/lib/syscall/ipc.c.o.provides: CMakeFiles/winix.dir/lib/syscall/ipc.c.o.requires
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/syscall/ipc.c.o.provides.build
+.PHONY : CMakeFiles/winix.dir/lib/syscall/ipc.c.o.provides
+
+CMakeFiles/winix.dir/lib/syscall/ipc.c.o.provides.build: CMakeFiles/winix.dir/lib/syscall/ipc.c.o
+
+
+CMakeFiles/winix.dir/lib/syscall/errno.c.o: CMakeFiles/winix.dir/flags.make
+CMakeFiles/winix.dir/lib/syscall/errno.c.o: ../lib/syscall/errno.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/winix.dir/lib/syscall/errno.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/lib/syscall/errno.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/syscall/errno.c
+
+CMakeFiles/winix.dir/lib/syscall/errno.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/winix.dir/lib/syscall/errno.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/syscall/errno.c > CMakeFiles/winix.dir/lib/syscall/errno.c.i
+
+CMakeFiles/winix.dir/lib/syscall/errno.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/winix.dir/lib/syscall/errno.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/Bruce/Documents/GitHub/winix/lib/syscall/errno.c -o CMakeFiles/winix.dir/lib/syscall/errno.c.s
+
+CMakeFiles/winix.dir/lib/syscall/errno.c.o.requires:
+
+.PHONY : CMakeFiles/winix.dir/lib/syscall/errno.c.o.requires
+
+CMakeFiles/winix.dir/lib/syscall/errno.c.o.provides: CMakeFiles/winix.dir/lib/syscall/errno.c.o.requires
+	$(MAKE) -f CMakeFiles/winix.dir/build.make CMakeFiles/winix.dir/lib/syscall/errno.c.o.provides.build
+.PHONY : CMakeFiles/winix.dir/lib/syscall/errno.c.o.provides
+
+CMakeFiles/winix.dir/lib/syscall/errno.c.o.provides.build: CMakeFiles/winix.dir/lib/syscall/errno.c.o
 
 
 CMakeFiles/winix.dir/winix/bitmap.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/winix/bitmap.c.o: ../winix/bitmap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/winix.dir/winix/bitmap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/winix.dir/winix/bitmap.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/winix/bitmap.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/bitmap.c
 
 CMakeFiles/winix.dir/winix/bitmap.c.i: cmake_force
@@ -1235,7 +1259,7 @@ CMakeFiles/winix.dir/winix/bitmap.c.o.provides.build: CMakeFiles/winix.dir/winix
 
 CMakeFiles/winix.dir/winix/kdebug.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/winix/kdebug.c.o: ../winix/kdebug.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/winix.dir/winix/kdebug.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/winix.dir/winix/kdebug.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/winix/kdebug.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/kdebug.c
 
 CMakeFiles/winix.dir/winix/kdebug.c.i: cmake_force
@@ -1259,7 +1283,7 @@ CMakeFiles/winix.dir/winix/kdebug.c.o.provides.build: CMakeFiles/winix.dir/winix
 
 CMakeFiles/winix.dir/winix/list.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/winix/list.c.o: ../winix/list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/winix.dir/winix/list.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/winix.dir/winix/list.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/winix/list.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/list.c
 
 CMakeFiles/winix.dir/winix/list.c.i: cmake_force
@@ -1283,7 +1307,7 @@ CMakeFiles/winix.dir/winix/list.c.o.provides.build: CMakeFiles/winix.dir/winix/l
 
 CMakeFiles/winix.dir/winix/mem_alloc.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/winix/mem_alloc.c.o: ../winix/mem_alloc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/winix.dir/winix/mem_alloc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/winix.dir/winix/mem_alloc.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/winix/mem_alloc.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/mem_alloc.c
 
 CMakeFiles/winix.dir/winix/mem_alloc.c.i: cmake_force
@@ -1307,7 +1331,7 @@ CMakeFiles/winix.dir/winix/mem_alloc.c.o.provides.build: CMakeFiles/winix.dir/wi
 
 CMakeFiles/winix.dir/winix/mm.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/winix/mm.c.o: ../winix/mm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/winix.dir/winix/mm.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/winix.dir/winix/mm.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/winix/mm.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/mm.c
 
 CMakeFiles/winix.dir/winix/mm.c.i: cmake_force
@@ -1331,7 +1355,7 @@ CMakeFiles/winix.dir/winix/mm.c.o.provides.build: CMakeFiles/winix.dir/winix/mm.
 
 CMakeFiles/winix.dir/winix/srec.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/winix/srec.c.o: ../winix/srec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/winix.dir/winix/srec.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/winix.dir/winix/srec.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/winix/srec.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/srec.c
 
 CMakeFiles/winix.dir/winix/srec.c.i: cmake_force
@@ -1355,7 +1379,7 @@ CMakeFiles/winix.dir/winix/srec.c.o.provides.build: CMakeFiles/winix.dir/winix/s
 
 CMakeFiles/winix.dir/winix/sys_stdio.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/winix/sys_stdio.c.o: ../winix/sys_stdio.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/winix.dir/winix/sys_stdio.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/winix.dir/winix/sys_stdio.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/winix/sys_stdio.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/sys_stdio.c
 
 CMakeFiles/winix.dir/winix/sys_stdio.c.i: cmake_force
@@ -1379,7 +1403,7 @@ CMakeFiles/winix.dir/winix/sys_stdio.c.o.provides.build: CMakeFiles/winix.dir/wi
 
 CMakeFiles/winix.dir/winix/timer.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/winix/timer.c.o: ../winix/timer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/winix.dir/winix/timer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/winix.dir/winix/timer.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/winix/timer.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/timer.c
 
 CMakeFiles/winix.dir/winix/timer.c.i: cmake_force
@@ -1403,7 +1427,7 @@ CMakeFiles/winix.dir/winix/timer.c.o.provides.build: CMakeFiles/winix.dir/winix/
 
 CMakeFiles/winix.dir/winix/util.c.o: CMakeFiles/winix.dir/flags.make
 CMakeFiles/winix.dir/winix/util.c.o: ../winix/util.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/winix.dir/winix/util.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/winix.dir/winix/util.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/winix.dir/winix/util.c.o   -c /cygdrive/c/Users/Bruce/Documents/GitHub/winix/winix/util.c
 
 CMakeFiles/winix.dir/winix/util.c.i: cmake_force
@@ -1439,7 +1463,7 @@ winix_OBJECTS = \
 "CMakeFiles/winix.dir/fs/read_write.c.o" \
 "CMakeFiles/winix.dir/fs/string.c.o" \
 "CMakeFiles/winix.dir/fs/util.c.o" \
-"CMakeFiles/winix.dir/init/init.c.o" \
+"CMakeFiles/winix.dir/fs/dir.c.o" \
 "CMakeFiles/winix.dir/kernel/system/do_alarm.c.o" \
 "CMakeFiles/winix.dir/kernel/system/do_brk.c.o" \
 "CMakeFiles/winix.dir/kernel/system/do_execve.c.o" \
@@ -1471,10 +1495,11 @@ winix_OBJECTS = \
 "CMakeFiles/winix.dir/kernel/system.c.o" \
 "CMakeFiles/winix.dir/kernel/table.c.o" \
 "CMakeFiles/winix.dir/kernel/wini_ipc.c.o" \
-"CMakeFiles/winix.dir/lib/gen/makecontext.c.o" \
 "CMakeFiles/winix.dir/lib/stdlib/atoi.c.o" \
 "CMakeFiles/winix.dir/lib/util/util.c.o" \
-"CMakeFiles/winix.dir/tools/gen_bin_code.c.o" \
+"CMakeFiles/winix.dir/lib/posix/_sigset.c.o" \
+"CMakeFiles/winix.dir/lib/syscall/ipc.c.o" \
+"CMakeFiles/winix.dir/lib/syscall/errno.c.o" \
 "CMakeFiles/winix.dir/winix/bitmap.c.o" \
 "CMakeFiles/winix.dir/winix/kdebug.c.o" \
 "CMakeFiles/winix.dir/winix/list.c.o" \
@@ -1500,7 +1525,7 @@ winix.exe: CMakeFiles/winix.dir/fs/path.c.o
 winix.exe: CMakeFiles/winix.dir/fs/read_write.c.o
 winix.exe: CMakeFiles/winix.dir/fs/string.c.o
 winix.exe: CMakeFiles/winix.dir/fs/util.c.o
-winix.exe: CMakeFiles/winix.dir/init/init.c.o
+winix.exe: CMakeFiles/winix.dir/fs/dir.c.o
 winix.exe: CMakeFiles/winix.dir/kernel/system/do_alarm.c.o
 winix.exe: CMakeFiles/winix.dir/kernel/system/do_brk.c.o
 winix.exe: CMakeFiles/winix.dir/kernel/system/do_execve.c.o
@@ -1532,10 +1557,11 @@ winix.exe: CMakeFiles/winix.dir/kernel/signal.c.o
 winix.exe: CMakeFiles/winix.dir/kernel/system.c.o
 winix.exe: CMakeFiles/winix.dir/kernel/table.c.o
 winix.exe: CMakeFiles/winix.dir/kernel/wini_ipc.c.o
-winix.exe: CMakeFiles/winix.dir/lib/gen/makecontext.c.o
 winix.exe: CMakeFiles/winix.dir/lib/stdlib/atoi.c.o
 winix.exe: CMakeFiles/winix.dir/lib/util/util.c.o
-winix.exe: CMakeFiles/winix.dir/tools/gen_bin_code.c.o
+winix.exe: CMakeFiles/winix.dir/lib/posix/_sigset.c.o
+winix.exe: CMakeFiles/winix.dir/lib/syscall/ipc.c.o
+winix.exe: CMakeFiles/winix.dir/lib/syscall/errno.c.o
 winix.exe: CMakeFiles/winix.dir/winix/bitmap.c.o
 winix.exe: CMakeFiles/winix.dir/winix/kdebug.c.o
 winix.exe: CMakeFiles/winix.dir/winix/list.c.o
@@ -1547,7 +1573,7 @@ winix.exe: CMakeFiles/winix.dir/winix/timer.c.o
 winix.exe: CMakeFiles/winix.dir/winix/util.c.o
 winix.exe: CMakeFiles/winix.dir/build.make
 winix.exe: CMakeFiles/winix.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Linking C executable winix.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Linking C executable winix.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/winix.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1567,7 +1593,7 @@ CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/fs/path.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/fs/read_write.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/fs/string.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/fs/util.c.o.requires
-CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/init/init.c.o.requires
+CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/fs/dir.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/kernel/system/do_alarm.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/kernel/system/do_brk.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/kernel/system/do_execve.c.o.requires
@@ -1599,10 +1625,11 @@ CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/kernel/signal.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/kernel/system.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/kernel/table.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/kernel/wini_ipc.c.o.requires
-CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/lib/gen/makecontext.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/lib/stdlib/atoi.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/lib/util/util.c.o.requires
-CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/tools/gen_bin_code.c.o.requires
+CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/lib/posix/_sigset.c.o.requires
+CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/lib/syscall/ipc.c.o.requires
+CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/lib/syscall/errno.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/winix/bitmap.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/winix/kdebug.c.o.requires
 CMakeFiles/winix.dir/requires: CMakeFiles/winix.dir/winix/list.c.o.requires
