@@ -1,10 +1,10 @@
 #include "fs.h"
 
-static struct filep fd_table[NR_FILPS];
+static struct filp fd_table[NR_FILPS];
 
-int get_fd(struct proc *curr,int start, int *k, struct filep **fpt){
+int get_fd(struct proc *curr,int start, int *k, struct filp **fpt){
     int i = -1;
-    struct filep *f;
+    struct filp *f;
 
     for( i=start; i< OPEN_MAX; i++){
         if(current_proc->fp_filp[i] == NIL_FILP){
@@ -29,22 +29,24 @@ int get_fd(struct proc *curr,int start, int *k, struct filep **fpt){
 }
 
 
-struct filep *get_filp(int fd){
-    return &fd_table[fd];
+struct filp *get_filp(int fd){
+	if (fd >= 0 && fd < OPEN_MAX) 
+		return &fd_table[fd];
+	return NULL;
 }
 
-struct filep *find_filp(struct inode *inode){
+struct filp *find_filp(struct inode *ino){
     int i;
     for(i = 0; i< NR_FILPS; i++){
-        if(fd_table[i].filp_ino == inode){
+        if(fd_table[i].filp_ino == ino){
             return &fd_table[i];
         }
     }
     return NULL;
 }
 
-struct filep *get_free_filp(){
-    struct filep* rep;
+struct filp *get_free_filp(){
+    struct filp* rep;
     for(rep = &fd_table[0]; rep < &fd_table[NR_FILPS]; rep++ ){
         if(rep->filp_ino = NIL_INODE){
             return rep;
@@ -54,7 +56,7 @@ struct filep *get_free_filp(){
 }
 
 void init_filp(){
-    struct filep* rep;
+    struct filp* rep;
     int i = 0;
     for(rep = &fd_table[0]; rep < &fd_table[NR_FILPS]; rep++ ){
         rep->filp_ino = NIL_INODE;

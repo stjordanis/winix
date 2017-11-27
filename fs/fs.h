@@ -9,6 +9,7 @@
 #include <kernel\kernel.h>
 #include "dir.h"
 #include "stat.h"
+#include <fcntl.h>
 #include <winix/device.h>
 #include <fs/const.h>
 #include <fs/inode.h>
@@ -26,13 +27,6 @@
 
 
 #define ROOT_INO	(1)
-
-/* open-only flags */
-#define    O_RDONLY     0x0000        /* open for reading only */
-#define    O_WRONLY     0x0001        /* open for writing only */
-#define    O_RDWR       0x0002        /* open for reading and writing */
-#define    O_ACCMODE    0x0003        /* mask for above modes */
-#define    O_CREAT      0x0200        /* create if nonexistant */
 
 
 int hexstr2int(char *a, int len);

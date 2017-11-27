@@ -1,13 +1,11 @@
 #include "fs.h"
 
-int rw_chunk(struct inode *ino, int off, int len, int curr_fp_index, char *buf, int flag) {
+int rw_chunk(struct inode *ino, int off, int len, block_t blocknum, char *buf, int flag) {
     int j;
-    struct blk_buf *buffer = get_block(ino->i_dev, curr_fp_index);
+    struct blk_buf *buffer = get_block(ino->i_dev, blocknum);
     char c;
     if (flag & READING) {
         for (j = off; j< off + len; j++) {
-			if (buffer->block[j] == EOF)
-				return EOF;
 			*buf++ = buffer->block[j];
         }
     }
@@ -15,15 +13,18 @@ int rw_chunk(struct inode *ino, int off, int len, int curr_fp_index, char *buf, 
         for (j = off; j< off + len; j++) {
             buffer->block[j] = *buf++;
         }
-		buffer->block[j] = EOF;
+		ino->i_size += len * 4;
+		if(j < PAGE_LEN)
+			buffer->block[j] = EOF;
     }
 	
 	return OK;
 }
 
-int rw_file(struct filep *filp, char *buf, size_t count, int flag){
+int rw_file(struct filp *filp, char *buf, size_t count, int flag){
     // char *pbuf = get_physical_addr(buf);
     int ret, r;
+	int oricount = count;
     int open_slot, pos;
 	struct bdev* dev = filp->filp_ino->i_dev;
     
@@ -55,7 +56,6 @@ int rw_file(struct filep *filp, char *buf, size_t count, int flag){
 				}
 			}
 			else { //read is too large
-				*buf = EOF;
 				break;
 			}
 		}
@@ -70,15 +70,26 @@ int rw_file(struct filep *filp, char *buf, size_t count, int flag){
         filp->filp_pos += len;
         off = 0;
     }
-    return OK;
+    return oricount - count;
 }
 
+
 int sys_read(struct proc *who,int fd, void *buf, int count){
-    rw_file(who->fp_filp[fd], buf,count, READING);
+	struct filp* file = get_filp(fd);
+	if (!file)
+		return EBADF;
+	if (file->filp_ino->i_mode & S_IFDIR)
+		return EISDIR;
+    return rw_file(who->fp_filp[fd], buf,count, READING);
 }
 
 int sys_write(struct proc *who,int fd, void *buf, int count){
-    rw_file(who->fp_filp[fd], buf, count, WRITING);
+	struct filp* file = get_filp(fd);
+	if (!file)
+		return EBADF;
+	if (file->filp_ino->i_mode & S_IFDIR)
+		return EISDIR;
+    return rw_file(who->fp_filp[fd], buf, count, WRITING);
 }
 
 

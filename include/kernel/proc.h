@@ -177,7 +177,7 @@ typedef struct proc {
     struct timer alarm;
 
 	/* File System */
-	struct filep* fp_filp[OPEN_MAX];
+	struct filp* fp_filp[OPEN_MAX];
 	struct inode *fp_rootdir;
 	struct inode *fp_workdir;
 } proc_t;

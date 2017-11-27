@@ -1,12 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/winix.dir/fs/cache.c.o"
-  "CMakeFiles/winix.dir/fs/close.c.o"
+  "CMakeFiles/winix.dir/fs/open_close.c.o"
   "CMakeFiles/winix.dir/fs/dev.c.o"
   "CMakeFiles/winix.dir/fs/filp.c.o"
   "CMakeFiles/winix.dir/fs/fs_main.c.o"
   "CMakeFiles/winix.dir/fs/inode.c.o"
   "CMakeFiles/winix.dir/fs/makefs.c.o"
-  "CMakeFiles/winix.dir/fs/open.c.o"
   "CMakeFiles/winix.dir/fs/path.c.o"
   "CMakeFiles/winix.dir/fs/read_write.c.o"
   "CMakeFiles/winix.dir/fs/string.c.o"

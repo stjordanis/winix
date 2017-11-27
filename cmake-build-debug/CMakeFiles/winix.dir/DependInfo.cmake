@@ -5,14 +5,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/cache.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/cache.c.o"
-  "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/close.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/close.c.o"
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dev.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/dev.c.o"
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dir.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/dir.c.o"
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/filp.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/filp.c.o"
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/fs_main.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/fs_main.c.o"
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/inode.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/inode.c.o"
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/makefs.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/makefs.c.o"
-  "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/open.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/open.c.o"
+  "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/open_close.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/open_close.c.o"
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/path.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/path.c.o"
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/read_write.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/read_write.c.o"
   "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/string.c" "/cygdrive/c/Users/Bruce/Documents/GitHub/winix/cmake-build-debug/CMakeFiles/winix.dir/fs/string.c.o"

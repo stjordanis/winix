@@ -45,9 +45,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/x86_64-pc-cygwin"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include"/>
 					<Add directory="/usr/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/../include/w32api"/>
@@ -67,9 +64,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/x86_64-pc-cygwin"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include"/>
 					<Add directory="/usr/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/../include/w32api"/>
@@ -83,9 +77,6 @@
 			</Target>
 		</Build>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/cache.c">
-			<Option target="winix"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/close.c">
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/dev.c">
@@ -109,7 +100,7 @@
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/makefs.c">
 			<Option target="winix"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/open.c">
+		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/open_close.c">
 			<Option target="winix"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Bruce/Documents/GitHub/winix/fs/path.c">

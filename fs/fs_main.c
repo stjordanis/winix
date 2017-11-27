@@ -34,14 +34,24 @@ int fs_main(){
 
     char c = 'a';
     int fd = sys_open(current_proc, "/foo.txt",O_CREAT, O_RDWR);
-    for (i = 0; i < 2046; i++) {
+    for (i = 0; i < 1024; i++) {
         sys_write(current_proc, fd, &c, 1);
         c++;
         if (c == 'z')
             c = 'a';
     }
-    sys_write(current_proc,fd, "a", 2);
     sys_close(current_proc, fd);
+
+	fd = sys_open(current_proc, "/foo.txt", O_APPEND, O_RDWR);
+	c = 'a';
+	for (i = 0; i < 1023; i++) {
+		sys_write(current_proc, fd, &c, 1);
+		c++;
+		if (c == 'z')
+			c = 'a';
+	}
+	sys_write(current_proc, fd, '\0', 1);
+	sys_close(current_proc, fd);
 
     char buf[2048];
     fd = sys_open(current_proc, "/foo.txt", 0 ,O_RDONLY);

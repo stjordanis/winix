@@ -5,13 +5,12 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
         fs/cache.c
-        fs/close.c
+        fs/open_close.c
         fs/dev.c
         fs/filp.c
         fs/fs_main.c
         fs/inode.c
         fs/makefs.c
-        fs/open.c
         fs/path.c
         fs/read_write.c
         fs/string.c

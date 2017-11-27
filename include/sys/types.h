@@ -20,7 +20,10 @@ typedef unsigned int time_t;
 typedef unsigned int nlink_t;
 typedef int pid_t;
 typedef unsigned int loff_t;
-typedef int          dev_t;       /* holds (major|minor) device pair */
+typedef struct dev {
+	unsigned int d_major;
+	unsigned int d_minor;
+}dev_t;
 
 #ifndef SIGSET_T
 #define SIGSET_T

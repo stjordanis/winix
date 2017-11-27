@@ -125,7 +125,5 @@ struct inode* eat_path(char *path){
 
 	rip = advance(ldip, string);
 
-	if (rip == NULL)
-		return ldip;
     return rip;
 }

@@ -34,6 +34,7 @@
 #include <curses.h>
 #include <string.h>
 
+#include <winix/err.h>
 #include <kernel/proc.h>
 #include <kernel/exception.h>
 #include <winix/comm.h>

@@ -12,7 +12,7 @@
 #endif
 
 struct direct {
-	ino_t d_ino;
+	int d_ino;
 	unsigned int d_name[DIRSIZ];
 };
 

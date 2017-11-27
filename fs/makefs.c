@@ -85,7 +85,6 @@ int makefs(struct bdev* dev)
 	block_t blockoff, bitmapoff;
 	
 	init_super(TOTAL_SIZE,dev);
-	kprintf_blkbuf("initla");
 
 	// block map
 	buf = get_block(dev, sb->s_blockmap_idx);
