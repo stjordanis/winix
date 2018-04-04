@@ -27,10 +27,10 @@ int copy_pcb(struct proc* parent, struct proc* child){
     int pbak;
     pid_t pidbak;
     pbak = child->proc_nr;
-    pidbak = child->pid;
+    pidbak = child->tgid;
     *child = *parent;
     child->proc_nr = pbak;
-    child->pid = pidbak;
+    child->tgid = pidbak;
     // child's pending signals are cleared
     child->sig_pending = 0;
     // ptable points to its own protection table
@@ -130,7 +130,7 @@ int do_fork(struct proc *who, struct message *m){
     syscall_reply(0, child_pr, m);
 
     // send the child pid to parent
-    return get_proc(child_pr)->pid;
+    return get_proc(child_pr)->tgid;
 }
 
 

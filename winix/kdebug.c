@@ -90,7 +90,6 @@ void kprintf_syscall_request(int type, pid_t from){
         kprintf("\n%s\t from %d |", syscall_str[type], from);
         _debug_syscall--;
     }
-    
 }
 
 void kreport_readyqueue(){

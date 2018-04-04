@@ -111,7 +111,7 @@ PRIVATE int sys_sig_handler(struct proc *who, int signum){
             
             default:
                 KDEBUG(("Signal %d: terminate process \"%s [%d]\"\n"
-                                        ,signum,who->name,who->pid));
+                                        ,signum,who->name,who->tgid));
                 exit_proc(who, 0, signum);
         }
         return OK;
@@ -139,7 +139,7 @@ PRIVATE int sys_sig_handler(struct proc *who, int signum){
 
             default:
                 KDEBUG(("Signal %d ignored by process \"%s [%d]\"\n"
-                                ,signum,who->name,who->pid));
+                                ,signum,who->name,who->tgid));
                 break;
         }
         return OK;
@@ -194,7 +194,7 @@ int send_sig(struct proc *who, int signum){
             return ret;
         }
     }
-    // kdebug("send sig %d to %d\n", signum, who->pid);
+    // kdebug("send sig %d to %d\n", signum, who->tgid);
 
     // Unpause the process if it was blocked by pause(2)
     // or sigsuspend(2)

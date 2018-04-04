@@ -42,7 +42,7 @@ do_list_add:
 		 * the tail end of the list
 		 */
 
-		list_del(&tmp->list);
+		// list_del(&tmp->list);
 	}
     kprintf("\n");
     

@@ -116,7 +116,7 @@ void syscall_region_end(){
 
 int no_syscall(struct proc* who, struct message* m){
     KDEBUG(("Process \"%s (%d)\" performed unknown system call %d\r\n", 
-        who->name, who->pid, m->type));
+        who->name, who->tgid, m->type));
     return ENOSYS;
 }
 

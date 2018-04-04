@@ -9,16 +9,6 @@
 #include <kernel/system.h>
 #include <kernel/idle.h>
 
-#define INITILISE_ARRAY(n,val)  
-
-struct boot_image{
-    char name[PROC_NAME_LEN];
-    void (*entry)();
-    int proc_nr;
-    int quantum;
-    int priority;
-};
-
 extern struct boot_image boot_table[NUM_TASKS];
 extern char *initial_env[];
 extern syscall_handler_t syscall_table[_NSYSCALL];

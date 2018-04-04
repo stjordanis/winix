@@ -109,15 +109,18 @@ ptr_t *get_free_pages(int length, int flags) {
  */
 ptr_t* user_get_free_pages(struct proc* who, int length, int flags){
     int index;
+    int ret;
     ptr_t* p;
     int page_num;
 
     p = get_free_pages(length,flags);
-    if(p == NULL)
+    if(!p)
         return NULL;
+
     index = PADDR_TO_PAGED(p);
     page_num = PADDR_TO_NUM_PAGES(length);
-    if(bitmap_set_nbits(who->ctx.ptable, PTABLE_LEN, index, page_num) == ERR)
+    ret = bitmap_set_nbits(who->ctx.ptable, PTABLE_LEN, index, page_num);
+    if(ret)
         return NULL;
     return p;
 }

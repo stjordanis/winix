@@ -21,17 +21,16 @@
 #include <winix/type.h>
 #include <winix/timer.h>
 #include <winix/kwramp.h>
+#include <winix/__list.h>
 
-// Init
-#define INIT                   		1
 #define INTERRUPT                   -30
 
 // Kernel Process
-// Plz do make sure IDLE has the lowest process number
 #define NUM_TASKS                   3
-#define IDLE                    	-2
-#define CLOCK                    	-1
 #define SYSTEM                      0
+#define INIT                   		1
+#define CLOCK                    	2
+#define IDLE                       	3
 
 // Number of User procs
 #define NUM_PROCS               	8
@@ -128,6 +127,14 @@ struct proc_sched{
                                 	// of this proc
 };
 
+struct boot_image{
+    char name[PROC_NAME_LEN];
+    void (*entry)();
+    int proc_nr;
+    int quantum;
+    int priority;
+};
+
 /**
  * Process structure for use in the process table.
  *
@@ -176,7 +183,8 @@ typedef struct proc {
     char name[PROC_NAME_LEN];    	// Process name
     int exit_status;            	// Storage for status when process exits
     int sig_status;                	// Storage for siginal status when process exits
-    pid_t pid;                    	// Process id
+    pid_t pid;                    	// Thread id
+    pid_t tgid;                     // Thread Group id
     pid_t procgrp;                	// Pid of the process group (used for signals)
     pid_t wpid;                    	// pid this process is waiting for
     int woptions;                   // waiting options
@@ -195,16 +203,22 @@ typedef struct proc {
 
     /* Alarm */
     struct timer alarm;
+
+    struct list_head proc_list;
+    struct list_head child_list;
+    
 } proc_t;
 
 /**
 * Pointer to the current process.
 **/
-extern struct proc *current_proc;
+// extern struct proc *current_proc;
 
-extern struct proc *proc_table;
+// extern struct proc *proc_table;
 extern struct proc *ready_q[NUM_QUEUES][2];
 extern struct proc *block_q[2];
+// extern struct proc *task_table;
+extern struct proc *system_task;
 
 #define IS_PROCN_OK(i)                  ((i)> -NUM_TASKS && (i) <= NUM_PROCS)
 #define IS_PRIORITY_OK(priority)        (0 <= (priority) && (priority) < NUM_QUEUES)
@@ -228,26 +242,22 @@ extern struct proc *block_q[2];
 #define SID_TO_TASK_NR(sid)             (-sid + 1)
 
 
-// proc_table points at index zero of the process table, so proc_table + INIT
-// simply starts at init
+#define next_task(task)\
+    list_next_entry(struct proc, task, proc_list)
+
 #define foreach_proc(curr)\
 for(curr = proc_table + INIT; curr <= proc_table + NUM_PROCS ; curr++)\
     if(IS_INUSE(curr))
 
 #define foreach_ktask(curr)\
-    for(curr = proc_table - NUM_TASKS + 1 ; curr <= proc_table ; curr++)\
+    for(curr = task_table ; curr < task_table + NUM_TASKS ; curr++)\
 
 #define foreach_proc_and_task(curr)\
 for(curr = proc_table - NUM_TASKS + 1; curr <= proc_table + NUM_PROCS; curr++)\
     if(IS_INUSE(curr))
 
-#define foreach_blocked_proc(curr)\
-for(curr = proc_table + 1; curr <= proc_table + NUM_PROCS; curr++)\
-    if(IS_INUSE(curr) && curr->state > 0)
-
 #define foreach_child(curr, parent_proc)\
-for(curr = proc_table + 1; curr <= proc_table + NUM_PROCS; curr++)\
-    if(IS_INUSE(curr) && (curr)->parent == (parent_proc)->proc_nr)
+list_for_each_entry(struct proc_list, curr, &parent_proc->child_list, list)
 
 
 void* get_pc_ptr(struct proc* who);
@@ -258,7 +268,7 @@ void init_proc();
 void proc_set_default(struct proc *p);
 reg_t* alloc_stack(struct proc *who);
 void set_proc(struct proc *p, void (*entry)(), const char *name);
-struct proc *start_kernel_proc(void (*entry)(), int proc_nr, const char *name,int quantum, int priority);
+struct proc *start_kernel_proc(struct boot_image* task);
 struct proc *start_user_proc(size_t *lines, size_t length, size_t entry, int priority, const char *name);
 struct proc *get_free_proc_slot();
 int alloc_proc_mem(struct proc *who, int tdb_length, int stack_size, int heap_size);
@@ -266,7 +276,7 @@ void enqueue_schedule(struct proc* p);
 reg_t* alloc_kstack(struct proc *who);
 int proc_memctl(struct proc* who ,vptr_t* page_addr, int flags);
 pid_t get_next_pid();
-struct proc* get_proc_by_pid(pid_t pid);
+struct proc* get_proc_by_tgid(pid_t pid);
 struct proc *get_proc(int proc_nr);
 struct proc *get_runnable_proc(int proc_nr);
 void kreport_all_procs();

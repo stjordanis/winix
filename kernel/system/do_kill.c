@@ -30,8 +30,8 @@ int do_kill(struct proc *who, struct message *m){
     foreach_proc(to){
         if(pid < -1 && -pid != to->procgrp) continue;
         if(pid == 0 && to->procgrp == who->procgrp) continue;
-        if(pid > 0 && pid != to->pid)   continue;
-        if(pid == -1 && to->pid == 1)   continue;
+        if(pid > 0 && pid != to->tgid)   continue;
+        if(pid == -1 && to->tgid == 1)   continue;
 
         if(signum == 0)
             return OK;

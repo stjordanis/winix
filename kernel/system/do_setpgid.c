@@ -12,13 +12,13 @@ int do_setpgid(struct proc* who, struct message* m){
     if(pid == 0)
         mp = who;
     else
-        mp = get_proc_by_pid(pid);
+        mp = get_proc(pid);
 
     if(!mp)
         return ESRCH;
 
     if(pgid == 0)
-        pgid = mp->pid;
+        pgid = mp->tgid;
 
     mp->procgrp = pgid;
     return OK;

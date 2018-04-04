@@ -19,16 +19,20 @@
 // Linked lists are defined by a head and tail pointer.
 
 // Process table
-PRIVATE struct proc _proc_table[NUM_PROCS + NUM_TASKS];
+// PRIVATE struct proc _proc_table[NUM_PROCS + NUM_TASKS];
 
-// Pointer to proc table, public system wise
-PUBLIC struct proc *proc_table;
+// // Pointer to proc table, public system wise
+// PUBLIC struct proc *proc_table;
+
+PUBLIC struct proc _task_table[NUM_TASKS];
 
 // Scheduling queues
 PUBLIC struct proc *ready_q[NUM_QUEUES][2];
 
 // The currently-running process
 PUBLIC struct proc *current_proc;
+
+PUBLIC struct proc *system_task;
 
 
 /**
@@ -71,6 +75,9 @@ void kreport_all_procs() {
     struct proc *curr;
     kprintf("NAME    PID PPID RBASE      PC         STACK      HEAP       PROTECTION   FLAGS\n");
 
+    foreach_ktask(curr){
+        kreport_proc(curr);
+    }
     foreach_proc(curr){
         kreport_proc(curr);
     }
@@ -82,9 +89,10 @@ void kreport_all_procs() {
 void kreport_proc(struct proc* curr) {
     int ptable_idx = PADDR_TO_PAGED(curr->ctx.rbase)/32;
     kprintf("%-08s %-03d %-04d 0x%08x 0x%08x 0x%08x 0x%08x %d 0x%08x %d\n",
+            curr->proc_nr,
             curr->name,
-            curr->pid,
-            get_proc(curr->parent)->pid,
+            curr->tgid,
+            get_proc(curr->parent)->tgid,
             curr->ctx.rbase,
             get_physical_addr(get_pc_ptr(curr),curr),
             get_physical_addr(curr->ctx.m.sp,curr),
@@ -98,7 +106,7 @@ void kreport_proc(struct proc* curr) {
  * get next free pid
 **/
 pid_t get_next_pid(){
-    static pid_t pid = 2;
+    static pid_t pid = 0;
     return pid++;
 }
 
@@ -112,17 +120,17 @@ pid_t get_next_pid(){
  *
  * Returns:            The relevant process, or NULL if it can't be found
  **/
-struct proc* get_proc_by_pid(pid_t pid){
-    struct proc* curr;
-    if(pid == 0)
-        return get_proc(SYSTEM);
-    foreach_proc(curr){
-        if(curr->pid == pid){
-            return curr;
-        }
-    }
-    return NULL;
-}
+// struct proc* get_proc_by_tgid(pid_t pid){
+//     struct proc* curr;
+//     if(pid == 0)
+//         return get_proc(SYSTEM);
+//     foreach_proc(curr){
+//         if(curr->tgid == pid){
+//             return curr;
+//         }
+//     }
+//     return NULL;
+// }
 
 /**
  * Gets a pointer to a process.
@@ -132,12 +140,21 @@ struct proc* get_proc_by_pid(pid_t pid){
  *
  * Returns:            The relevant process, or NULL if it does not exist.
  **/
-struct proc *get_proc(int proc_nr) {
-    struct proc* who;
-    if (IS_PROCN_OK(proc_nr))
-        if(IS_INUSE(who = proc_table + proc_nr))
-            return who;
+struct proc *get_proc(pid_t pid) {
+    struct proc* curr;
+
+    foreach_proc(curr){
+        if(curr->pid == pid)
+            return curr;
+    }
     return NULL;
+    
+    // struct proc* who;
+    // struct proc* table = proc_nr < NUM_TASKS ? task_table : proc_table;
+    // if (IS_PROCN_OK(proc_nr))
+    //     if(IS_INUSE(who = table + proc_nr))
+    //         return who;
+    // return NULL;
 }
 
 /**
@@ -256,6 +273,18 @@ void enqueue_schedule(struct proc* p) {
     enqueue_tail(ready_q[p->priority], p);
 }
 
+struct proc* new_proc(){
+    struct proc* who = (struct proc*)kmalloc(sizeof(struct proc));
+    if(!who)
+        return NULL;
+    proc_set_default(who);
+    who->pid = who->tgid = get_next_pid();
+    who->flags |= IN_USE;
+    __list_add(&task->proc_list, system_task->proc_list.prev, \
+                    &system_task->proc_list);
+    return who;
+}
+
 /**
  * zombify the process, the process will be removed from the
  * ready_q, and memory will be released by the system
@@ -273,9 +302,8 @@ void zombify(struct proc *p){
  */
 void release_zombie(struct proc *p){
     if(p->state & STATE_ZOMBIE){
-        p->flags = 0;
-        p->pid = 0;
-        p->state = -1;
+        __list_del_entry(&p->proc_list);
+        kfree(p);
     }
 }
 
@@ -283,21 +311,21 @@ void release_zombie(struct proc *p){
  * get a free struct proc from the system proc table
  * @return pointer to the free slot, or NULL
  */
-struct proc *get_free_proc_slot() {
-    int i;
-    struct proc *who;
-    for(i = INIT; i <= NUM_PROCS; i++){
-        who = &proc_table[i];
-        if(!IS_INUSE(who)){
-            proc_set_default(who);
-            who->state = STATE_RUNNABLE;
-            who->flags = IN_USE;
-            who->pid = get_next_pid();
-            return who;
-        }
-    }
-    return NULL;
-}
+// struct proc *get_free_proc_slot() {
+//     int i;
+//     struct proc *who;
+//     for(i = INIT; i <= NUM_PROCS; i++){
+//         who = &proc_table[i];
+//         if(!IS_INUSE(who)){
+//             proc_set_default(who);
+//             who->state = STATE_RUNNABLE;
+//             who->flags = IN_USE;
+//             who->tgid = get_next_pid();
+//             return who;
+//         }
+//     }
+//     return NULL;
+// }
 
 /**
  * set the process struct to default values
@@ -364,6 +392,8 @@ void set_proc(struct proc *p, void (*entry)(), const char *name) {
     }
 }
 
+
+
 /**
  * Creates a new kernel process and adds it to the runnable queue
  *
@@ -380,41 +410,21 @@ void set_proc(struct proc *p, void (*entry)(), const char *name) {
  * Side Effects:
  *   A proc is removed from the free_proc list, reinitialised, and added to ready_q.
  */
-struct proc *start_kernel_proc(void (*entry)(), int proc_nr, const char *name, int quantum, int priority) {
-    struct proc *who = NULL;
-    
-    if(who = proc_table + proc_nr){
-        proc_set_default(who);
-        who->flags |= IN_USE;
 
-        set_proc(who, entry, name);
+struct proc *start_kernel_proc(struct boot_image* task) {
+    struct proc *who = new_proc();
+    
+    if(who){
+        set_proc(who, task->entry, task->name);
         kset_ptable(who);
-        who->quantum = quantum;
+        who->quantum = task->quantum;
         who->ctx.m.sp = alloc_kstack(who);
-        who->priority = priority;
-        who->pid = 0;
+        who->priority = task->priority;
         who->state = STATE_RUNNABLE;
+        
         enqueue_schedule(who);
     }
     return who;
-}
-
-/**
- * start a new user process
- * @param  lines    array containing the binary image of the process
- * @param  length   length of the lines
- * @param  entry    entry point of the process
- * @param  priority 
- * @param  name     
- * @return          
- */
-struct proc *start_user_proc(size_t *lines, size_t length, size_t entry, int options, const char *name){
-    struct proc *p;
-    if(p = get_free_proc_slot()){
-        if(exec_proc(p,lines,length,entry,options,name) == OK)
-            return p;
-    }
-    return NULL;
 }
 
 /**
@@ -532,16 +542,6 @@ void init_proc() {
         ready_q[i][HEAD]  = ready_q[i][TAIL] = NULL;
     }
 
-    procnr_offset = NUM_TASKS - 1;
-    // Add all proc structs to the free list
-    for ( i = 0; i < NUM_PROCS + NUM_TASKS; i++) {
-        p = &_proc_table[i];
-        proc_set_default(p);
-        preset_pnr = i - procnr_offset;
-        p->proc_nr = preset_pnr;
-    }
-
-    proc_table = _proc_table + procnr_offset;
     current_proc = NULL;
 }
 

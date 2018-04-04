@@ -142,7 +142,7 @@ PRIVATE void gpf_handler() {
 #ifdef _DEBUG
     kinfo("General Protection Fault: \"%s (%d)\" Rbase=0x%x \n",
         current_proc->name,
-        current_proc->pid,
+        current_proc->tgid,
         current_proc->ctx.rbase);
     pc = get_physical_addr(get_pc_ptr(current_proc),current_proc);
 
@@ -244,7 +244,7 @@ PRIVATE void break_handler() {
  **/
 PRIVATE void arith_handler() {
     KDEBUG(("Arith Exception: \"%s (%d)\" PC=0x%08x.\r\n", 
-        current_proc->name, current_proc->pid, current_proc->ctx.m.pc));
+        current_proc->name, current_proc->tgid, current_proc->ctx.m.pc));
     send_sig(current_proc,SIGFPE);
     sched();
 }

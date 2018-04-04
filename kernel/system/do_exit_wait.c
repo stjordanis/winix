@@ -56,7 +56,7 @@ int do_waitpid(struct proc *parent, struct message *mesg){
          *             value of pid.
         **/
 
-        if  (pid > 0 && pid != child->pid) continue;
+        if  (pid > 0 && pid != child->tgid) continue;
         if  (pid < -1 && -pid != child->procgrp) continue;
         if  (pid == 0 && child->procgrp != parent->procgrp) continue;
 
@@ -66,7 +66,7 @@ int do_waitpid(struct proc *parent, struct message *mesg){
 
             mesg->m1_i2 = get_wstats(child);
             release_zombie(child);
-            return child->pid;
+            return child->tgid;
         }
         children++;
         
@@ -93,7 +93,7 @@ void clear_sending_mesg(struct proc *who){
     struct proc *rp; // iterate over the process table
     struct proc **xp; // iterate over the process's queue
 
-    foreach_proc_and_task(rp){
+    foreach_ktask(rp){
         if((xp = &(rp->sender_q)) != NULL && *xp){
             // walk through the message queues
             while(*xp && *xp != who){
@@ -121,7 +121,7 @@ int check_waiting(struct proc* who){
     // if this process if waiting for the current to be exited process
     if(parent && parent->state & STATE_WAITING){
         pid_t pid = parent->wpid;
-        if( (pid > 0 && pid == who->pid) ||
+        if( (pid > 0 && pid == who->tgid) ||
             (pid < -1 && -pid == who->procgrp) ||
             (pid == 0 && parent->procgrp == who->procgrp) ||
             (pid == -1)){
@@ -133,7 +133,7 @@ int check_waiting(struct proc* who){
             mesg->type = WAITPID;
             mesg->m1_i2 = get_wstats(who);
             parent->state &= ~STATE_WAITING;
-            syscall_reply(who->pid, parent->proc_nr, mesg);
+            syscall_reply(who->tgid, parent->proc_nr, mesg);
             if(who->state & STATE_ZOMBIE)
                 release_zombie(who);
             return OK;
@@ -191,7 +191,7 @@ void exit_proc(struct proc *who, int status, int signum){
         // parent is blocked by vfork(2)
         parent->state &= ~STATE_VFORKING;
         mesg->type = VFORK;
-        syscall_reply(who->pid, parent->proc_nr, mesg);
+        syscall_reply(who->tgid, parent->proc_nr, mesg);
     }else{
         release_proc_mem(who);
     }
@@ -219,7 +219,7 @@ int do_exit(struct proc *who, struct message *m){
         status = who->ctx.m.regs[0];
     }
 
-    KDEBUG(("%s[%d] exit status %d signal %d\n",who->name, who->pid, 
+    KDEBUG(("%s[%d] exit status %d signal %d\n",who->name, who->tgid, 
                         status, signum));
     
     exit_proc(who, status, signum);

@@ -7,9 +7,9 @@ int do_getpgid(struct proc* who, struct message* m){
     if(pid < 0)
         return EINVAL;
     if(pid == 0)
-        pid = who->pid;
+        pid = who->tgid;
 
-    to = get_proc_by_pid(pid);
+    to = get_proc(pid);
     if(!to)
         return ESRCH;
     m->m1_i1 = to->procgrp;

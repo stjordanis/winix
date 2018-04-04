@@ -16,6 +16,7 @@
 #include <kernel/kernel.h>
 #include <winix/srec.h>
 #include <kernel/table.h>
+#include <winix/list.h>
 
 struct initial_frame{
     struct syscall_frame_comm i_base;
@@ -30,9 +31,13 @@ int do_exec(struct proc *who, struct message *m){
 * malloc a new memory and write the values of lines into that address
 * the process is updated
 **/
-int exec_proc(struct proc *who,size_t *lines, size_t length, size_t entry, int offset, const char *name){
+struct proc* exec_proc(struct proc *prev_proc, size_t *lines, size_t length, size_t entry, int offset, const char *name){
     int err;
-    unsigned int* first_word;
+    struct proc* who = prev_proc;
+    if(!who){
+        who = new_proc();
+    }
+
     set_proc(who, (void (*)())entry, name);
     if(err = alloc_proc_mem(who, length + 1024, USER_STACK_SIZE , USER_HEAP_SIZE)){
         return err;
@@ -51,10 +56,8 @@ int exec_proc(struct proc *who,size_t *lines, size_t length, size_t entry, int o
     build_initial_stack(who, 0, NULL, initial_env, get_proc(SYSTEM));
 
     memcpy(who->ctx.rbase + offset, lines , length);
-    first_word = who->ctx.rbase + offset;
-
     enqueue_schedule(who);
-    return OK;
+    return who;
 }
 
 
